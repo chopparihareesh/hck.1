@@ -12,12 +12,14 @@ export function App() {
   const [currentLang, setCurrentLang] = useState('en');
   const [activePage, setActivePage] = useState('home');
   const [scanUrl, setScanUrl] = useState('');
+  const [scanCounter, setScanCounter] = useState(0);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
   // Trigger scan from homepage to scanner page
   const handleStartScan = (targetUrl) => {
     setScanUrl(targetUrl);
+    setScanCounter(prev => prev + 1);
     setActivePage('check');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -49,6 +51,7 @@ export function App() {
 
         {activePage === 'check' && (
           <ScannerPage
+            key={`${scanUrl}-${scanCounter}`}
             currentLang={currentLang}
             initialUrl={scanUrl}
             onReportEscalate={(threat) => {
@@ -68,7 +71,10 @@ export function App() {
           <DashboardPage
             currentLang={currentLang}
             onLaunchScan={(url) => {
-              if (url) setScanUrl(url);
+              if (url) {
+                setScanUrl(url);
+                setScanCounter(prev => prev + 1);
+              }
               setActivePage('check');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}

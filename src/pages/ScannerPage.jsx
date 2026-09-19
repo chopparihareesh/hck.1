@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
+  Shield,
   Terminal, 
   Search, 
   ClipboardPaste, 
@@ -49,15 +50,7 @@ export function ScannerPage({ currentLang, initialUrl, onReportEscalate }) {
   const [copiedDossier, setCopiedDossier] = useState(false);
   const [escalated, setEscalated] = useState(false);
 
-  // If initialUrl changes from home page, trigger scan
-  useEffect(() => {
-    if (initialUrl && initialUrl !== url) {
-      setUrl(initialUrl);
-      executeScan(initialUrl);
-    }
-  }, [initialUrl]);
-
-  const executeScan = (targetUrl) => {
+  const executeScan = useCallback((targetUrl) => {
     const analysis = analyzeTargetUrl(targetUrl);
     setActiveResult(analysis);
     setIsScanning(true);
@@ -81,7 +74,15 @@ export function ScannerPage({ currentLang, initialUrl, onReportEscalate }) {
       setActiveLogs(analysis.sandboxLogs);
       setIsScanning(false);
     }, 2100);
-  };
+  }, []);
+
+  // If initialUrl changes from home page, trigger scan
+  useEffect(() => {
+    if (initialUrl) {
+      setUrl(initialUrl);
+      executeScan(initialUrl);
+    }
+  }, [initialUrl, executeScan]);
 
   const handleManualScan = (e) => {
     if (e) e.preventDefault();
