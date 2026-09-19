@@ -114,17 +114,25 @@ export function Footer({ currentLang, setActivePage }) {
               marginBottom: '14px'
             }}>
               <div style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                backgroundColor: 'rgba(118, 192, 236, 0.2)',
-                border: '1px solid #76C0EC',
+                borderRadius: '6px',
+                overflow: 'hidden',
+                border: '1px solid rgba(118, 192, 236, 0.4)',
+                boxShadow: '0 0 10px rgba(118, 192, 236, 0.25)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                color: '#76C0EC'
+                backgroundColor: '#FACC15',
+                height: '32px'
               }}>
-                <ShieldCheck size={20} />
+                <img 
+                  src="/sfynbox-logo.jpeg" 
+                  alt="Sfynbox Logo" 
+                  style={{
+                    height: '32px',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    display: 'block'
+                  }}
+                />
               </div>
               <span style={{
                 fontFamily: 'var(--font-sans)',

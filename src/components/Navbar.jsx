@@ -96,35 +96,31 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
             userSelect: 'none'
           }}
         >
-          {/* High-tech vector Shield-Sandbox Logo */}
+          {/* Official Sfynbox Logo Image */}
           <div style={{
             position: 'relative',
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, rgba(118, 192, 236, 0.25), rgba(10, 25, 47, 0.9))',
-            border: '1.5px solid #76C0EC',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 0 15px rgba(118, 192, 236, 0.35)'
+            borderRadius: '10px',
+            overflow: 'hidden',
+            border: '1.5px solid rgba(118, 192, 236, 0.5)',
+            boxShadow: '0 0 16px rgba(118, 192, 236, 0.35)',
+            height: '42px',
+            backgroundColor: '#FACC15',
+            flexShrink: 0
           }}>
-            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 3L27 8V16.5C27 23 22.5 28 16 29.5C9.5 28 5 23 5 16.5V8L16 3Z" stroke="#76C0EC" strokeWidth="2.2" strokeLinejoin="round"/>
-              <path d="M16 8L23 12V17C23 20.8 20.1 23.9 16 25C11.9 23.9 9 20.8 9 17V12L16 8Z" fill="rgba(118, 192, 236, 0.2)" stroke="#76C0EC" strokeWidth="1.5"/>
-              <rect x="13" y="14" width="6" height="6" rx="1.5" fill="#76C0EC"/>
-              <circle cx="16" cy="17" r="1.2" fill="#0A192F"/>
-            </svg>
-            <div style={{
-              position: 'absolute',
-              bottom: '-2px',
-              right: '-2px',
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: '#10B981',
-              boxShadow: '0 0 6px #10B981'
-            }}></div>
+            <img 
+              src="/sfynbox-logo.jpeg" 
+              alt="SFYNBOX Logo" 
+              style={{
+                height: '42px',
+                width: 'auto',
+                maxWidth: '120px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
           </div>
 
           <div>

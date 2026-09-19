@@ -131,16 +131,25 @@ export function AboutPage({ currentLang, setActivePage }) {
               <div className="glass-panel" style={{ padding: '28px', border: '1.5px solid rgba(118, 192, 236, 0.4)', boxShadow: 'var(--shadow-glow)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                   <div style={{
-                    width: '36px',
-                    height: '36px',
                     borderRadius: '8px',
-                    backgroundColor: 'rgba(118, 192, 236, 0.2)',
-                    color: '#76C0EC',
+                    overflow: 'hidden',
+                    border: '1px solid #76C0EC',
+                    backgroundColor: '#FACC15',
+                    height: '36px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    flexShrink: 0
                   }}>
-                    <Cpu size={20} />
+                    <img 
+                      src="/sfynbox-logo.jpeg" 
+                      alt="Sfynbox Logo" 
+                      style={{
+                        height: '36px',
+                        width: 'auto',
+                        objectFit: 'contain',
+                        display: 'block'
+                      }} 
+                    />
                   </div>
                   <div>
                     <h3 style={{ color: '#76C0EC', fontSize: '1.1rem', fontWeight: '700' }}>Sfynbox Cloud MicroVM Sandbox</h3>

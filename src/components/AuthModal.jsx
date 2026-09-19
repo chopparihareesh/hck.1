@@ -119,17 +119,24 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '32px',
-              height: '32px',
               borderRadius: '8px',
-              backgroundColor: 'rgba(118, 192, 236, 0.15)',
-              border: '1px solid #76C0EC',
+              overflow: 'hidden',
+              border: '1px solid rgba(118, 192, 236, 0.4)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              color: '#76C0EC'
+              backgroundColor: '#FACC15',
+              height: '34px'
             }}>
-              <Shield size={18} />
+              <img 
+                src="/sfynbox-logo.jpeg" 
+                alt="Sfynbox Logo" 
+                style={{
+                  height: '34px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
             </div>
             <div>
               <h3 style={{ color: '#F8FAFC', fontSize: '1.1rem', fontWeight: '700' }}>

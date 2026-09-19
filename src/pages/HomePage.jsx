@@ -98,8 +98,29 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
 
         <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '980px' }}>
           
-          {/* Top Tag */}
-          <div style={{ display: 'inline-flex', marginBottom: '20px' }}>
+          {/* Brand Logo & Top Tag */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{
+              borderRadius: '8px',
+              overflow: 'hidden',
+              border: '1.5px solid rgba(118, 192, 236, 0.5)',
+              boxShadow: '0 0 18px rgba(118, 192, 236, 0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              backgroundColor: '#FACC15',
+              height: '36px'
+            }}>
+              <img 
+                src="/sfynbox-logo.jpeg" 
+                alt="Sfynbox Logo" 
+                style={{
+                  height: '36px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
+            </div>
             <span className="badge badge-primary" style={{ padding: '6px 16px', fontSize: '0.84rem' }}>
               <Sparkles size={14} color="#76C0EC" />
               <span>{t.hero.tag}</span>
