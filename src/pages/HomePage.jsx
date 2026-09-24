@@ -26,7 +26,6 @@ import {
 import { translations } from '../data/translations';
 import { SCAM_PRESETS } from '../data/scamDatabase';
 import { LIVE_TELEMETRY_FEED } from '../data/telemetryData';
-import KineticGrid from '@/components/ui/kinetic-grid';
 
 export function HomePage({ currentLang, onStartScan, setActivePage }) {
   const t = translations[currentLang] || translations.en;
@@ -75,7 +74,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
   };
 
   return (
-    <KineticGrid className="cyber-bg" globalColor="default">
+    <div className="cyber-bg">
       <div style={{ minHeight: '100vh', paddingBottom: '60px' }}>
         
         {/* HERO SECTION */}
@@ -136,16 +135,16 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             fontSize: 'clamp(2.1rem, 4.5vw, 3.4rem)',
             fontWeight: '800',
             lineHeight: '1.2',
-            color: '#FFFFFF',
+            color: '#0F172A',
             marginBottom: '20px',
             letterSpacing: '-0.02em'
           }}>
             Check Any Link Before You Click — <br/>
             <span style={{
-              background: 'linear-gradient(135deg, #76C0EC 0%, #38BDF8 60%, #BAE6FD 100%)',
+              background: 'linear-gradient(135deg, #0284C7 0%, #0369A1 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 35px rgba(118, 192, 236, 0.4)'
+              textShadow: '0 0 35px rgba(2, 132, 199, 0.25)'
             }}>
               Safe, Instant, in Your Language.
             </span>
@@ -154,7 +153,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
           {/* Subhead */}
           <p style={{
             fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-            color: '#94A3B8',
+            color: '#475569',
             maxWidth: '820px',
             margin: '0 auto 36px',
             lineHeight: '1.6'
@@ -172,9 +171,9 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 alignItems: 'center',
                 padding: '8px',
                 borderRadius: '16px',
-                border: '1.5px solid rgba(118, 192, 236, 0.4)',
-                boxShadow: '0 12px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(118, 192, 236, 0.2)',
-                backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                border: '1.5px solid rgba(2, 132, 199, 0.35)',
+                boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.08), 0 0 20px rgba(2, 132, 199, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 gap: '8px',
                 flexWrap: 'wrap'
               }}
@@ -186,7 +185,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 padding: '4px 12px',
                 gap: '10px'
               }}>
-                <Search size={22} color="#76C0EC" style={{ flexShrink: 0 }} />
+                <Search size={22} color="#0284C7" style={{ flexShrink: 0 }} />
                 <input
                   type="text"
                   placeholder={t.hero.inputPlaceholder}
@@ -197,7 +196,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                     background: 'transparent',
                     border: 'none',
                     outline: 'none',
-                    color: '#FFFFFF',
+                    color: '#0F172A',
                     fontSize: '1.05rem',
                     fontFamily: 'var(--font-sans)',
                     fontWeight: '500'
@@ -217,7 +216,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                     borderRadius: '10px'
                   }}
                 >
-                  <ClipboardPaste size={16} color="#76C0EC" />
+                  <ClipboardPaste size={16} color="#0284C7" />
                   <span className="hide-on-mobile">{t.hero.pasteBtn}</span>
                 </button>
 
@@ -261,13 +260,14 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 key={preset.id}
                 onClick={() => handlePresetClick(preset)}
                 style={{
-                  background: 'rgba(30, 41, 59, 0.6)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  color: preset.riskLevel === 'critical' ? '#FCA5A5' : (preset.riskLevel === 'suspicious' ? '#FDE047' : '#86EFAC'),
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(15, 23, 42, 0.1)',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                  color: preset.riskLevel === 'critical' ? '#DC2626' : (preset.riskLevel === 'suspicious' ? '#D97706' : '#059669'),
                   padding: '5px 12px',
                   borderRadius: '20px',
                   fontSize: '0.78rem',
-                  fontWeight: '500',
+                  fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
                   display: 'flex',
@@ -275,19 +275,19 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   gap: '6px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#76C0EC';
-                  e.currentTarget.style.backgroundColor = 'rgba(118, 192, 236, 0.12)';
+                  e.currentTarget.style.borderColor = '#0284C7';
+                  e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.06)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.backgroundColor = 'rgba(30, 41, 59, 0.6)';
+                  e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.1)';
+                  e.currentTarget.style.backgroundColor = '#FFFFFF';
                 }}
               >
                 <span style={{
                   width: '6px',
                   height: '6px',
                   borderRadius: '50%',
-                  background: preset.riskLevel === 'critical' ? '#EF4444' : (preset.riskLevel === 'suspicious' ? '#FACC15' : '#10B981')
+                  background: preset.riskLevel === 'critical' ? '#DC2626' : (preset.riskLevel === 'suspicious' ? '#D97706' : '#059669')
                 }}></span>
                 <span>{preset.title}</span>
               </button>
@@ -303,10 +303,11 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             gap: '16px',
             padding: '12px 24px',
             borderRadius: '40px',
-            backgroundColor: 'rgba(15, 23, 42, 0.6)',
-            border: '1px solid rgba(255, 255, 255, 0.06)'
+            backgroundColor: '#FFFFFF',
+            border: '1px solid rgba(15, 23, 42, 0.08)',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.04)'
           }}>
-            <span style={{ fontSize: '0.8rem', color: '#94A3B8', fontWeight: '500' }}>
+            <span style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: '500' }}>
               {t.hero.platformsSupported}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -315,16 +316,16 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   key={plat}
                   style={{
                     fontSize: '0.76rem',
-                    color: '#E2E8F0',
+                    color: '#0F172A',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '4px',
                     padding: '2px 8px',
                     borderRadius: '6px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.04)'
+                    backgroundColor: '#F1F5F9'
                   }}
                 >
-                  <CheckCircle2 size={12} color="#76C0EC" />
+                  <CheckCircle2 size={12} color="#0284C7" />
                   {plat}
                 </span>
               ))}
@@ -336,9 +337,9 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
 
       {/* LIVE SECURITY METRICS & TICKER */}
       <section style={{
-        backgroundColor: '#07101E',
-        borderTop: '1px solid rgba(118, 192, 236, 0.15)',
-        borderBottom: '1px solid rgba(118, 192, 236, 0.15)',
+        backgroundColor: '#FFFFFF',
+        borderTop: '1px solid rgba(15, 23, 42, 0.08)',
+        borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
         padding: '20px 0'
       }}>
         <div className="container">
@@ -353,17 +354,17 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             <div style={{
               textAlign: 'center',
               padding: '12px',
-              borderRight: '1px solid rgba(255, 255, 255, 0.06)'
+              borderRight: '1px solid rgba(15, 23, 42, 0.08)'
             }}>
               <div style={{
                 fontSize: '1.9rem',
                 fontWeight: '800',
-                color: '#76C0EC',
+                color: '#0284C7',
                 fontFamily: 'var(--font-mono)'
               }}>
                 {scannedCount.toLocaleString()}
               </div>
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ fontSize: '0.82rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '600' }}>
                 {t.metrics.scanned}
               </div>
             </div>
@@ -371,12 +372,12 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             <div style={{
               textAlign: 'center',
               padding: '12px',
-              borderRight: '1px solid rgba(255, 255, 255, 0.06)'
+              borderRight: '1px solid rgba(15, 23, 42, 0.08)'
             }}>
               <div style={{
                 fontSize: '1.9rem',
                 fontWeight: '800',
-                color: '#EF4444',
+                color: '#DC2626',
                 fontFamily: 'var(--font-mono)',
                 display: 'flex',
                 alignItems: 'center',
@@ -384,9 +385,9 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 gap: '8px'
               }}>
                 <span>{avertedCount.toLocaleString()}</span>
-                <ShieldAlert size={20} color="#EF4444" />
+                <ShieldAlert size={20} color="#DC2626" />
               </div>
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ fontSize: '0.82rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '600' }}>
                 {t.metrics.threatsBlocked}
               </div>
             </div>
@@ -394,17 +395,17 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             <div style={{
               textAlign: 'center',
               padding: '12px',
-              borderRight: '1px solid rgba(255, 255, 255, 0.06)'
+              borderRight: '1px solid rgba(15, 23, 42, 0.08)'
             }}>
               <div style={{
                 fontSize: '1.9rem',
                 fontWeight: '800',
-                color: '#10B981',
+                color: '#059669',
                 fontFamily: 'var(--font-mono)'
               }}>
                 1.4s
               </div>
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ fontSize: '0.82rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '600' }}>
                 {t.metrics.avgScanTime}
               </div>
             </div>
@@ -416,7 +417,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
               <div style={{
                 fontSize: '1.9rem',
                 fontWeight: '800',
-                color: '#FACC15',
+                color: '#D97706',
                 fontFamily: 'var(--font-mono)',
                 display: 'flex',
                 alignItems: 'center',
@@ -426,7 +427,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 <span className="live-dot-green" style={{ width: '10px', height: '10px' }}></span>
                 <span>28 States</span>
               </div>
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div style={{ fontSize: '0.82rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: '600' }}>
                 {t.metrics.activeSensors}
               </div>
             </div>
@@ -436,23 +437,23 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            backgroundColor: 'rgba(15, 23, 42, 0.8)',
+            backgroundColor: '#F8FAFC',
             borderRadius: '10px',
-            border: '1px solid rgba(239, 68, 68, 0.25)',
+            border: '1px solid rgba(220, 38, 38, 0.2)',
             overflow: 'hidden',
             height: '42px'
           }}>
             <div style={{
               padding: '0 16px',
-              backgroundColor: 'rgba(239, 68, 68, 0.15)',
-              color: '#EF4444',
+              backgroundColor: 'rgba(220, 38, 38, 0.1)',
+              color: '#DC2626',
               fontWeight: '700',
               fontSize: '0.78rem',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
               whiteSpace: 'nowrap',
-              borderRight: '1px solid rgba(239, 68, 68, 0.3)',
+              borderRight: '1px solid rgba(220, 38, 38, 0.2)',
               flexShrink: 0
             }}>
               <span className="live-dot"></span>
@@ -469,18 +470,18 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                       alignItems: 'center', 
                       gap: '8px', 
                       fontSize: '0.82rem',
-                      color: '#E2E8F0',
+                      color: '#0F172A',
                       cursor: 'pointer'
                     }}
                     onClick={() => onStartScan('http://' + item.domain)}
                   >
-                    <span style={{ color: '#FACC15' }}>⚠️</span>
-                    <strong style={{ color: '#76C0EC', fontFamily: 'var(--font-mono)' }}>{item.domain}</strong>
-                    <span style={{ color: '#94A3B8' }}>({item.brand})</span>
+                    <span>⚠️</span>
+                    <strong style={{ color: '#0284C7', fontFamily: 'var(--font-mono)' }}>{item.domain}</strong>
+                    <span style={{ color: '#64748B' }}>({item.brand})</span>
                     <span className="badge badge-danger" style={{ fontSize: '0.68rem', padding: '1px 6px' }}>
                       {item.vector}
                     </span>
-                    <span style={{ color: '#64748B', fontSize: '0.74rem' }}>{item.time}</span>
+                    <span style={{ color: '#94A3B8', fontSize: '0.74rem' }}>{item.time}</span>
                   </div>
                 ))}
               </div>
@@ -497,10 +498,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
             <span className="badge badge-primary" style={{ marginBottom: '12px' }}>
               Zero Physical Risk
             </span>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: '800', color: '#FFFFFF', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: '800', color: '#0F172A', marginBottom: '12px' }}>
               {t.howItWorks.title}
             </h2>
-            <p style={{ color: '#94A3B8', maxWidth: '640px', margin: '0 auto', fontSize: '1rem' }}>
+            <p style={{ color: '#475569', maxWidth: '640px', margin: '0 auto', fontSize: '1rem' }}>
               {t.howItWorks.subtitle}
             </p>
           </div>
@@ -516,20 +517,20 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                backgroundColor: 'rgba(118, 192, 236, 0.15)',
-                border: '1px solid #76C0EC',
+                backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                border: '1px solid #0284C7',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#76C0EC',
+                color: '#0284C7',
                 marginBottom: '20px'
               }}>
                 <ClipboardPaste size={24} />
               </div>
-              <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
                 {t.howItWorks.step1Title}
               </h3>
-              <p style={{ color: '#94A3B8', lineHeight: '1.6', fontSize: '0.92rem' }}>
+              <p style={{ color: '#475569', lineHeight: '1.6', fontSize: '0.92rem' }}>
                 {t.howItWorks.step1Desc}
               </p>
             </div>
@@ -541,9 +542,9 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 top: 0,
                 right: 0,
                 padding: '4px 12px',
-                backgroundColor: 'rgba(118, 192, 236, 0.2)',
+                backgroundColor: 'rgba(2, 132, 199, 0.12)',
                 borderBottomLeftRadius: '10px',
-                color: '#76C0EC',
+                color: '#0284C7',
                 fontSize: '0.72rem',
                 fontWeight: '700'
               }}>
@@ -553,20 +554,20 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                backgroundColor: 'rgba(250, 204, 21, 0.15)',
-                border: '1px solid #FACC15',
+                backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                border: '1px solid #D97706',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#FACC15',
+                color: '#D97706',
                 marginBottom: '20px'
               }}>
                 <Cpu size={24} />
               </div>
-              <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
                 {t.howItWorks.step2Title}
               </h3>
-              <p style={{ color: '#94A3B8', lineHeight: '1.6', fontSize: '0.92rem' }}>
+              <p style={{ color: '#475569', lineHeight: '1.6', fontSize: '0.92rem' }}>
                 {t.howItWorks.step2Desc}
               </p>
             </div>
@@ -577,20 +578,20 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid #10B981',
+                backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                border: '1px solid #059669',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#10B981',
+                color: '#059669',
                 marginBottom: '20px'
               }}>
                 <Globe size={24} />
               </div>
-              <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: '700', marginBottom: '12px' }}>
                 {t.howItWorks.step3Title}
               </h3>
-              <p style={{ color: '#94A3B8', lineHeight: '1.6', fontSize: '0.92rem' }}>
+              <p style={{ color: '#475569', lineHeight: '1.6', fontSize: '0.92rem' }}>
                 {t.howItWorks.step3Desc}
               </p>
             </div>
@@ -613,10 +614,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
               <span className="badge badge-warning" style={{ marginBottom: '8px' }}>
                 Smishing Awareness Hub
               </span>
-              <h2 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: '800', color: '#FFFFFF' }}>
+              <h2 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: '800', color: '#0F172A' }}>
                 {t.scams.title}
               </h2>
-              <p style={{ color: '#94A3B8', fontSize: '0.95rem' }}>
+              <p style={{ color: '#475569', fontSize: '0.95rem' }}>
                 {t.scams.subtitle}
               </p>
             </div>
@@ -642,8 +643,8 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   width: '40px',
                   height: '40px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                  color: '#EF4444',
+                  backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                  color: '#DC2626',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -652,10 +653,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 </div>
                 <span className="badge badge-danger">36% of Reports</span>
               </div>
-              <h3 style={{ color: '#F8FAFC', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
                 {t.scams.electricity.title}
               </h3>
-              <p style={{ color: '#94A3B8', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
                 {t.scams.electricity.desc}
               </p>
               <button
@@ -663,7 +664,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 className="btn-secondary"
                 style={{ width: '100%', fontSize: '0.85rem' }}
               >
-                <PlayCircle size={15} color="#76C0EC" />
+                <PlayCircle size={15} color="#0284C7" />
                 <span>Simulate BESCOM Scam</span>
               </button>
             </div>
@@ -675,8 +676,8 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   width: '40px',
                   height: '40px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(250, 204, 21, 0.15)',
-                  color: '#FACC15',
+                  backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                  color: '#D97706',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -685,10 +686,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 </div>
                 <span className="badge badge-warning">29% of Reports</span>
               </div>
-              <h3 style={{ color: '#F8FAFC', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
                 {t.scams.banking.title}
               </h3>
-              <p style={{ color: '#94A3B8', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
                 {t.scams.banking.desc}
               </p>
               <button
@@ -696,7 +697,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 className="btn-secondary"
                 style={{ width: '100%', fontSize: '0.85rem' }}
               >
-                <PlayCircle size={15} color="#76C0EC" />
+                <PlayCircle size={15} color="#0284C7" />
                 <span>Simulate SBI YONO Scam</span>
               </button>
             </div>
@@ -708,8 +709,8 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   width: '40px',
                   height: '40px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                  color: '#3B82F6',
+                  backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                  color: '#0284C7',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -718,10 +719,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 </div>
                 <span className="badge badge-primary">18% of Reports</span>
               </div>
-              <h3 style={{ color: '#F8FAFC', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
                 {t.scams.courier.title}
               </h3>
-              <p style={{ color: '#94A3B8', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
                 {t.scams.courier.desc}
               </p>
               <button
@@ -729,7 +730,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 className="btn-secondary"
                 style={{ width: '100%', fontSize: '0.85rem' }}
               >
-                <PlayCircle size={15} color="#76C0EC" />
+                <PlayCircle size={15} color="#0284C7" />
                 <span>Simulate India Post Scam</span>
               </button>
             </div>
@@ -741,8 +742,8 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                   width: '40px',
                   height: '40px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                  color: '#A78BFA',
+                  backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                  color: '#7C3AED',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -751,10 +752,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 </div>
                 <span className="badge badge-warning">11% of Reports</span>
               </div>
-              <h3 style={{ color: '#F8FAFC', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
+              <h3 style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: '700', marginBottom: '10px' }}>
                 {t.scams.lottery.title}
               </h3>
-              <p style={{ color: '#94A3B8', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.5', flex: 1, marginBottom: '20px' }}>
                 {t.scams.lottery.desc}
               </p>
               <button
@@ -762,7 +763,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
                 className="btn-secondary"
                 style={{ width: '100%', fontSize: '0.85rem' }}
               >
-                <PlayCircle size={15} color="#76C0EC" />
+                <PlayCircle size={15} color="#0284C7" />
                 <span>Simulate Jio 5G Scam</span>
               </button>
             </div>
@@ -777,6 +778,6 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
         }
       `}</style>
       </div>
-    </KineticGrid>
+    </div>
   );
 }

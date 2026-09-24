@@ -59,12 +59,12 @@ export function ContactPage({ currentLang }) {
         
         {/* IMMEDIATE FRAUD REPORTING GUIDANCE BANNER */}
         <div style={{
-          backgroundColor: '#0F172A',
+          backgroundColor: '#FEF2F2',
           border: '1.5px solid #EF4444',
           borderRadius: '16px',
           padding: '24px',
           marginBottom: '40px',
-          boxShadow: 'var(--shadow-danger)'
+          boxShadow: '0 4px 20px rgba(239, 68, 68, 0.08)'
         }}>
           <div style={{
             display: 'flex',
@@ -78,7 +78,7 @@ export function ContactPage({ currentLang }) {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                backgroundColor: 'rgba(239, 68, 68, 0.15)',
                 color: '#EF4444',
                 display: 'flex',
                 alignItems: 'center',
@@ -89,12 +89,12 @@ export function ContactPage({ currentLang }) {
               </div>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                  <h2 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: '800' }}>
+                  <h2 style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: '800' }}>
                     Lost Money to an SMS Scam or Phishing Link?
                   </h2>
                   <span className="badge badge-danger">ACT IMMEDIATELY</span>
                 </div>
-                <p style={{ color: '#CBD5E1', fontSize: '0.88rem', lineHeight: '1.5' }}>
+                <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.5' }}>
                   The first <strong>2 hours (Golden Hours)</strong> are crucial. Dial national cyber helpline <strong>1930</strong> right now to block fraudulent recipient bank accounts and freeze UPI balances.
                 </p>
               </div>
@@ -141,23 +141,23 @@ export function ContactPage({ currentLang }) {
           
           {/* Left: Citizen Incident Reporting Form */}
           <div className="glass-panel" style={{ padding: '30px' }}>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px' }}>
+            <h3 style={{ color: '#0F172A', fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px' }}>
               Report Suspicious Link / Smishing Incident
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '0.84rem', marginBottom: '22px' }}>
+            <p style={{ color: '#475569', fontSize: '0.84rem', marginBottom: '22px' }}>
               Our threat team will inspect the URL in our isolated sandbox and notify CERT-In and state cyber cells.
             </p>
 
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '36px 10px' }}>
-                <CheckCircle2 size={52} color="#10B981" style={{ margin: '0 auto 16px' }} />
-                <h4 style={{ color: '#F8FAFC', fontSize: '1.25rem', marginBottom: '8px' }}>
+                <CheckCircle2 size={52} color="#16A34A" style={{ margin: '0 auto 16px' }} />
+                <h4 style={{ color: '#0F172A', fontSize: '1.25rem', marginBottom: '8px' }}>
                   Incident Report Received
                 </h4>
-                <p style={{ color: '#94A3B8', fontSize: '0.88rem', marginBottom: '20px' }}>
-                  Reference ID: <strong style={{ color: '#76C0EC', fontFamily: 'var(--font-mono)' }}>#SFYN-{Date.now().toString().slice(-6)}</strong>
+                <p style={{ color: '#475569', fontSize: '0.88rem', marginBottom: '20px' }}>
+                  Reference ID: <strong style={{ color: '#0284C7', fontFamily: 'var(--font-mono)' }}>#SFYN-{Date.now().toString().slice(-6)}</strong>
                 </p>
-                <p style={{ color: '#CBD5E1', fontSize: '0.84rem', marginBottom: '24px' }}>
+                <p style={{ color: '#334155', fontSize: '0.84rem', marginBottom: '24px' }}>
                   The target URL has been dispatched to our automated headless Docker sandbox and added to the I4C threat telemetry queue.
                 </p>
                 <button
@@ -181,7 +181,7 @@ export function ContactPage({ currentLang }) {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '4px', fontWeight: '500' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '4px', fontWeight: '500' }}>
                     Your Name (Optional / Anonymous OK)
                   </label>
                   <input
@@ -191,11 +191,11 @@ export function ContactPage({ currentLang }) {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     style={{
                       width: '100%',
-                      backgroundColor: '#0A192F',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: '#F8FAFC',
+                      border: '1px solid rgba(15, 23, 42, 0.15)',
                       borderRadius: '8px',
                       padding: '10px 12px',
-                      color: '#FFFFFF',
+                      color: '#0F172A',
                       fontSize: '0.9rem',
                       outline: 'none'
                     }}
@@ -203,7 +203,7 @@ export function ContactPage({ currentLang }) {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '4px', fontWeight: '500' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '4px', fontWeight: '500' }}>
                     Phone or Email (for Case Updates)
                   </label>
                   <input
@@ -213,11 +213,11 @@ export function ContactPage({ currentLang }) {
                     onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                     style={{
                       width: '100%',
-                      backgroundColor: '#0A192F',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: '#F8FAFC',
+                      border: '1px solid rgba(15, 23, 42, 0.15)',
                       borderRadius: '8px',
                       padding: '10px 12px',
-                      color: '#FFFFFF',
+                      color: '#0F172A',
                       fontSize: '0.9rem',
                       outline: 'none'
                     }}
@@ -225,7 +225,7 @@ export function ContactPage({ currentLang }) {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '4px', fontWeight: '500' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '4px', fontWeight: '500' }}>
                     Suspect Message / Phishing Link *
                   </label>
                   <input
@@ -236,11 +236,11 @@ export function ContactPage({ currentLang }) {
                     onChange={(e) => setFormData({ ...formData, suspectUrl: e.target.value })}
                     style={{
                       width: '100%',
-                      backgroundColor: '#0A192F',
-                      border: '1px solid #76C0EC',
+                      backgroundColor: '#F8FAFC',
+                      border: '1px solid #0284C7',
                       borderRadius: '8px',
                       padding: '10px 12px',
-                      color: '#FFFFFF',
+                      color: '#0F172A',
                       fontSize: '0.9rem',
                       fontFamily: 'var(--font-mono)',
                       outline: 'none'
@@ -249,7 +249,7 @@ export function ContactPage({ currentLang }) {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '4px', fontWeight: '500' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '4px', fontWeight: '500' }}>
                     Scam Category
                   </label>
                   <select
@@ -257,11 +257,11 @@ export function ContactPage({ currentLang }) {
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     style={{
                       width: '100%',
-                      backgroundColor: '#0A192F',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: '#F8FAFC',
+                      border: '1px solid rgba(15, 23, 42, 0.15)',
                       borderRadius: '8px',
                       padding: '10px 12px',
-                      color: '#FFFFFF',
+                      color: '#0F172A',
                       fontSize: '0.9rem',
                       outline: 'none'
                     }}
@@ -276,7 +276,7 @@ export function ContactPage({ currentLang }) {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '4px', fontWeight: '500' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '4px', fontWeight: '500' }}>
                     SMS Body or Description
                   </label>
                   <textarea
@@ -286,11 +286,11 @@ export function ContactPage({ currentLang }) {
                     onChange={(e) => setFormData({ ...formData, messageText: e.target.value })}
                     style={{
                       width: '100%',
-                      backgroundColor: '#0A192F',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: '#F8FAFC',
+                      border: '1px solid rgba(15, 23, 42, 0.15)',
                       borderRadius: '8px',
                       padding: '10px 12px',
-                      color: '#FFFFFF',
+                      color: '#0F172A',
                       fontSize: '0.88rem',
                       outline: 'none',
                       resize: 'vertical'
@@ -361,24 +361,24 @@ export function ContactPage({ currentLang }) {
                   <Terminal size={20} />
                 </div>
                 <div>
-                  <h3 style={{ color: '#FFFFFF', fontSize: '1.2rem', fontWeight: '700' }}>
+                  <h3 style={{ color: '#0F172A', fontSize: '1.2rem', fontWeight: '700' }}>
                     Enterprise & Law Enforcement API
                   </h3>
-                  <p style={{ color: '#94A3B8', fontSize: '0.78rem' }}>
+                  <p style={{ color: '#475569', fontSize: '0.78rem' }}>
                     REST API, SIEM integration & high-throughput bulk microVM scanning.
                   </p>
                 </div>
               </div>
 
-              <p style={{ color: '#94A3B8', fontSize: '0.88rem', lineHeight: '1.6', marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: '1.6', marginBottom: '20px' }}>
                 Are you a State Police Cyber Cell, Banking Fraud Prevention team, or Telecom Operator? Connect directly to our low-latency microVM container cluster to scan thousands of URLs per minute.
               </p>
 
               {/* API Sandbox Key Generator Demo */}
               <div style={{
-                backgroundColor: '#0A192F',
+                backgroundColor: '#F8FAFC',
                 borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(15, 23, 42, 0.1)',
                 padding: '16px',
                 marginBottom: '20px'
               }}>
@@ -390,9 +390,9 @@ export function ContactPage({ currentLang }) {
                       flex: 1,
                       padding: '6px',
                       borderRadius: '6px',
-                      border: apiType === 'enterprise' ? '1px solid #76C0EC' : '1px solid transparent',
-                      backgroundColor: apiType === 'enterprise' ? 'rgba(118, 192, 236, 0.15)' : 'transparent',
-                      color: apiType === 'enterprise' ? '#76C0EC' : '#94A3B8',
+                      border: apiType === 'enterprise' ? '1px solid #0284C7' : '1px solid transparent',
+                      backgroundColor: apiType === 'enterprise' ? 'rgba(2, 132, 199, 0.15)' : 'transparent',
+                      color: apiType === 'enterprise' ? '#0284C7' : '#64748B',
                       fontSize: '0.78rem',
                       fontWeight: '600',
                       cursor: 'pointer'
@@ -408,9 +408,9 @@ export function ContactPage({ currentLang }) {
                       flex: 1,
                       padding: '6px',
                       borderRadius: '6px',
-                      border: apiType === 'law_enforcement' ? '1px solid #FACC15' : '1px solid transparent',
-                      backgroundColor: apiType === 'law_enforcement' ? 'rgba(250, 204, 21, 0.15)' : 'transparent',
-                      color: apiType === 'law_enforcement' ? '#FACC15' : '#94A3B8',
+                      border: apiType === 'law_enforcement' ? '1px solid #D97706' : '1px solid transparent',
+                      backgroundColor: apiType === 'law_enforcement' ? 'rgba(217, 119, 6, 0.15)' : 'transparent',
+                      color: apiType === 'law_enforcement' ? '#D97706' : '#64748B',
                       fontSize: '0.78rem',
                       fontWeight: '600',
                       cursor: 'pointer'
@@ -426,12 +426,12 @@ export function ContactPage({ currentLang }) {
                     className="btn-secondary"
                     style={{ width: '100%', fontSize: '0.84rem' }}
                   >
-                    <Key size={14} color="#76C0EC" />
+                    <Key size={14} color="#0284C7" />
                     <span>Generate Instant Sandbox Test Key</span>
                   </button>
                 ) : (
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginBottom: '4px' }}>Demo Sandbox API Key:</div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748B', marginBottom: '4px' }}>Demo Sandbox API Key:</div>
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -467,15 +467,15 @@ export function ContactPage({ currentLang }) {
             </div>
 
             {/* Quick Helpline Contact Card */}
-            <div className="glass-panel" style={{ padding: '24px', backgroundColor: 'rgba(15, 23, 42, 0.7)' }}>
+            <div className="glass-panel" style={{ padding: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                <ShieldCheck size={18} color="#10B981" />
-                <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontWeight: '700' }}>
+                <ShieldCheck size={18} color="#16A34A" />
+                <h4 style={{ color: '#0F172A', fontSize: '1rem', fontWeight: '700' }}>
                   CERT-In Compliance Desk
                 </h4>
               </div>
-              <p style={{ fontSize: '0.82rem', color: '#94A3B8', lineHeight: '1.5' }}>
-                For official law enforcement inquiries or emergency ISP domain blocking orders, contact our 24x7 security operations center at <strong style={{ color: '#E2E8F0' }}>ops@sfynbox.gov.in</strong>.
+              <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: '1.5' }}>
+                For official law enforcement inquiries or emergency ISP domain blocking orders, contact our 24x7 security operations center at <strong style={{ color: '#0F172A' }}>ops@sfynbox.gov.in</strong>.
               </p>
             </div>
           </div>

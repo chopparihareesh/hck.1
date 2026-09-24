@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { AuthModal } from './components/AuthModal';
+import KineticGrid from './components/ui/kinetic-grid';
 import { HomePage } from './pages/HomePage';
 import { ScannerPage } from './pages/ScannerPage';
 import { AboutPage } from './pages/AboutPage';
@@ -29,7 +30,8 @@ export function App() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#0A192F' }}>
+    <KineticGrid globalColor="light">
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'transparent' }}>
       {/* Global Navigation Header */}
       <Navbar
         currentLang={currentLang}
@@ -101,6 +103,7 @@ export function App() {
         onLoginSuccess={handleLoginSuccess}
       />
     </div>
+    </KineticGrid>
   );
 }
 

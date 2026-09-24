@@ -53,11 +53,11 @@ function lerpColor(
 export default function KineticGrid({
   children,
   className,
-  globalColor = "default",
+  globalColor = "light",
 }: {
   children?: ReactNode;
   className?: string;
-  globalColor?: "default" | "monochrome";
+  globalColor?: "light" | "default" | "dark" | "monochrome";
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -153,21 +153,47 @@ export default function KineticGrid({
       const ripples = ripplesRef.current;
 
       const theme = {
+        light: {
+          bg: "#FFFFFF",
+          lineBase: { r: 215, g: 226, b: 238, a: 0.85 },
+          lineActive: { r: 2, g: 132, b: 199, a: 0.95 },
+          nodeBase: { r: 180, g: 198, b: 220, a: 0.7 },
+          nodeActive: { r: 2, g: 132, b: 199, a: 1.0 },
+          glow: "2, 132, 199",
+          ripple: "2, 132, 199",
+          dot: "rgba(100, 116, 139, 0.18)",
+        },
         default: {
+          bg: "#FFFFFF",
+          lineBase: { r: 215, g: 226, b: 238, a: 0.85 },
+          lineActive: { r: 2, g: 132, b: 199, a: 0.95 },
+          nodeBase: { r: 180, g: 198, b: 220, a: 0.7 },
+          nodeActive: { r: 2, g: 132, b: 199, a: 1.0 },
+          glow: "2, 132, 199",
+          ripple: "2, 132, 199",
+          dot: "rgba(100, 116, 139, 0.18)",
+        },
+        dark: {
           bg: "#161618",
+          lineBase: { r: 255, g: 255, b: 255, a: 0.13 },
           lineActive: { r: 74, g: 158, b: 255, a: 0.9 },
+          nodeBase: { r: 255, g: 255, b: 255, a: 0.2 },
           nodeActive: { r: 74, g: 158, b: 255, a: 1.0 },
           glow: "74,158,255",
           ripple: "100,180,255",
+          dot: "rgba(255,255,255,0.05)",
         },
         monochrome: {
           bg: "#000000",
+          lineBase: { r: 255, g: 255, b: 255, a: 0.13 },
           lineActive: { r: 255, g: 255, b: 255, a: 0.9 },
+          nodeBase: { r: 255, g: 255, b: 255, a: 0.2 },
           nodeActive: { r: 255, g: 255, b: 255, a: 1.0 },
           glow: "255,255,255",
           ripple: "255,255,255",
+          dot: "rgba(255,255,255,0.05)",
         },
-      }[globalColor ?? "default"];
+      }[globalColor ?? "light"];
 
       ctx.clearRect(0, 0, W, H);
 
@@ -176,7 +202,7 @@ export default function KineticGrid({
       ctx.fillRect(0, 0, W, H);
 
       // Static background dot texture
-      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillStyle = theme.dot;
       for (let x = DOT_SPACING / 2; x < W; x += DOT_SPACING) {
         for (let y = DOT_SPACING / 2; y < H; y += DOT_SPACING) {
           ctx.beginPath();
@@ -230,7 +256,7 @@ export default function KineticGrid({
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
-        ctx.strokeStyle = lerpColor(LINE_BASE, theme.lineActive, t);
+        ctx.strokeStyle = lerpColor(theme.lineBase, theme.lineActive, t);
         ctx.lineWidth = lerpN(0.8, 1.5, t);
         ctx.stroke();
       };
@@ -286,7 +312,7 @@ export default function KineticGrid({
           ctx.beginPath();
           ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
           ctx.fillStyle = lerpColor(
-            { r: 255, g: 255, b: 255, a: 0.2 },
+            theme.nodeBase,
             theme.nodeActive,
             t,
           );
@@ -300,7 +326,7 @@ export default function KineticGrid({
         const safeRadius = Math.max(0, r.radius);
         ctx.beginPath();
         ctx.arc(r.x, r.y, safeRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${theme.ripple},${(r.opacity * 0.28).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(${theme.ripple},${(r.opacity * 0.32).toFixed(3)})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
@@ -378,8 +404,12 @@ export default function KineticGrid({
   return (
     <div
       className={cn(
-        "relative w-full min-h-screen overflow-hidden",
-        globalColor === "monochrome" ? "bg-[#000000]" : "bg-[#161618]",
+        "relative w-full min-h-screen",
+        globalColor === "monochrome"
+          ? "bg-[#000000]"
+          : globalColor === "dark"
+          ? "bg-[#161618]"
+          : "bg-white",
         className,
       )}
     >
