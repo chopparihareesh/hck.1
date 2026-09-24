@@ -445,10 +445,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
           <span className="badge badge-primary" style={{ marginBottom: '8px' }}>
             Dynamic MicroVM Container
           </span>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: '800', color: '#F8FAFC', marginBottom: '8px' }}>
             {t.scanner.heading}
           </h1>
-          <p style={{ color: '#475569', fontSize: '0.95rem', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ color: '#94A3B8', fontSize: '0.95rem', maxWidth: '680px', margin: '0 auto' }}>
             {t.scanner.subheading}
           </p>
         </div>
@@ -463,9 +463,9 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               alignItems: 'center',
               padding: '8px',
               borderRadius: '16px',
-              border: '1.5px solid rgba(2, 132, 199, 0.35)',
-              boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.08)',
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              border: '1.5px solid rgba(56, 189, 248, 0.35)',
+              boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.4)',
+              backgroundColor: 'rgba(26, 26, 30, 0.85)',
               gap: '8px',
               flexWrap: 'wrap'
             }}
@@ -477,7 +477,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               padding: '4px 12px',
               gap: '10px'
             }}>
-              <Terminal size={22} color="#0284C7" style={{ flexShrink: 0 }} />
+              <Terminal size={22} color="#38BDF8" style={{ flexShrink: 0 }} />
               <input
                 type="text"
                 placeholder={t.hero.inputPlaceholder}
@@ -488,7 +488,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                   background: 'transparent',
                   border: 'none',
                   outline: 'none',
-                  color: '#0F172A',
+                  color: '#F8FAFC',
                   fontSize: '1rem',
                   fontFamily: 'var(--font-mono)'
                 }}
@@ -503,7 +503,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                 style={{ padding: '9px 14px', fontSize: '0.84rem' }}
                 title="Paste from clipboard"
               >
-                <ClipboardPaste size={15} color="#0284C7" />
+                <ClipboardPaste size={15} color="#38BDF8" />
                 <span className="hide-on-mobile">{t.hero.pasteBtn}</span>
               </button>
 
@@ -537,16 +537,16 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
             marginTop: '12px',
             justifyContent: 'center'
           }}>
-            <span style={{ fontSize: '0.76rem', color: '#64748B' }}>Preset Scenarios:</span>
+            <span style={{ fontSize: '0.76rem', color: '#94A3B8' }}>Preset Scenarios:</span>
             {SCAM_PRESETS.map((preset) => (
               <button
                 key={preset.id}
                 onClick={() => handleSelectPreset(preset)}
                 style={{
-                  background: url === preset.url ? 'rgba(2, 132, 199, 0.12)' : '#FFFFFF',
-                  border: url === preset.url ? '1px solid #0284C7' : '1px solid rgba(15, 23, 42, 0.1)',
-                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
-                  color: preset.riskLevel === 'critical' ? '#DC2626' : (preset.riskLevel === 'suspicious' ? '#D97706' : '#059669'),
+                  background: url === preset.url ? 'rgba(56, 189, 248, 0.18)' : 'rgba(26, 26, 30, 0.8)',
+                  border: url === preset.url ? '1px solid #38BDF8' : '1px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
+                  color: preset.riskLevel === 'critical' ? '#F87171' : (preset.riskLevel === 'suspicious' ? '#FBBF24' : '#34D399'),
                   padding: '4px 10px',
                   borderRadius: '6px',
                   fontSize: '0.74rem',
@@ -568,15 +568,15 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
           gap: '12px',
           marginBottom: '26px'
         }}>
-          <span style={{ fontSize: '0.85rem', color: '#64748B', fontWeight: '500' }}>
+          <span style={{ fontSize: '0.85rem', color: '#94A3B8', fontWeight: '500' }}>
             {t.scanner.deviceToggle}
           </span>
           <div style={{
-            backgroundColor: '#FFFFFF',
+            backgroundColor: '#1E1E24',
             padding: '4px',
             borderRadius: '10px',
-            border: '1px solid rgba(15, 23, 42, 0.1)',
-            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
             display: 'flex',
             gap: '4px'
           }}>
@@ -591,7 +591,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                 borderRadius: '7px',
                 border: 'none',
                 backgroundColor: deviceMode === 'mobile' ? '#0284C7' : 'transparent',
-                color: deviceMode === 'mobile' ? '#FFFFFF' : '#475569',
+                color: deviceMode === 'mobile' ? '#FFFFFF' : '#94A3B8',
                 fontWeight: '600',
                 fontSize: '0.82rem',
                 cursor: 'pointer',
@@ -613,7 +613,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                 borderRadius: '7px',
                 border: 'none',
                 backgroundColor: deviceMode === 'desktop' ? '#0284C7' : 'transparent',
-                color: deviceMode === 'desktop' ? '#FFFFFF' : '#475569',
+                color: deviceMode === 'desktop' ? '#FFFFFF' : '#94A3B8',
                 fontWeight: '600',
                 fontSize: '0.82rem',
                 cursor: 'pointer',
@@ -652,8 +652,8 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                     gap: '10px',
                     padding: '12px',
                     borderRadius: '8px',
-                    backgroundColor: isCurrent ? 'rgba(2, 132, 199, 0.08)' : (isCompleted ? 'rgba(5, 150, 105, 0.08)' : '#F8FAFC'),
-                    border: isCurrent ? '1px solid #0284C7' : (isCompleted ? '1px solid rgba(5, 150, 105, 0.3)' : '1px solid rgba(15, 23, 42, 0.08)'),
+                    backgroundColor: isCurrent ? 'rgba(56, 189, 248, 0.12)' : (isCompleted ? 'rgba(16, 185, 129, 0.12)' : 'rgba(26, 26, 30, 0.7)'),
+                    border: isCurrent ? '1px solid #38BDF8' : (isCompleted ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)'),
                     transition: 'all 0.2s ease'
                   }}
                 >
@@ -661,7 +661,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                     width: '24px',
                     height: '24px',
                     borderRadius: '50%',
-                    backgroundColor: isCompleted ? '#059669' : (isCurrent ? '#0284C7' : '#CBD5E1'),
+                    backgroundColor: isCompleted ? '#10B981' : (isCurrent ? '#0284C7' : '#334155'),
                     color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
@@ -676,7 +676,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                     <div style={{
                       fontSize: '0.8rem',
                       fontWeight: isCurrent || isCompleted ? '600' : '400',
-                      color: isCurrent ? '#0284C7' : (isCompleted ? '#0F172A' : '#64748B')
+                      color: isCurrent ? '#38BDF8' : (isCompleted ? '#F8FAFC' : '#94A3B8')
                     }}>
                       {step.title}
                     </div>
@@ -707,7 +707,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
             style={{
               padding: '30px',
               border: activeResult.riskLevel === 'critical' ? '1.5px solid rgba(220, 38, 38, 0.4)' : (activeResult.riskLevel === 'suspicious' ? '1.5px solid rgba(217, 119, 6, 0.4)' : '1.5px solid rgba(5, 150, 105, 0.4)'),
-              boxShadow: '0 10px 30px -5px rgba(15, 23, 42, 0.08)'
+              boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.5)'
             }}
           >
             {/* Verdict Header Status */}
@@ -717,7 +717,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               justifyContent: 'space-between',
               flexWrap: 'wrap',
               gap: '16px',
-              borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
               paddingBottom: '20px',
               marginBottom: '24px'
             }}>
@@ -726,7 +726,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                   width: '52px',
                   height: '52px',
                   borderRadius: '12px',
-                  backgroundColor: activeResult.riskLevel === 'critical' ? 'rgba(220, 38, 38, 0.1)' : (activeResult.riskLevel === 'suspicious' ? 'rgba(217, 119, 6, 0.1)' : 'rgba(5, 150, 105, 0.1)'),
+                  backgroundColor: activeResult.riskLevel === 'critical' ? 'rgba(220, 38, 38, 0.15)' : (activeResult.riskLevel === 'suspicious' ? 'rgba(217, 119, 6, 0.15)' : 'rgba(5, 150, 105, 0.15)'),
                   border: activeResult.riskLevel === 'critical' ? '1.5px solid #DC2626' : (activeResult.riskLevel === 'suspicious' ? '1.5px solid #D97706' : '1.5px solid #059669'),
                   display: 'flex',
                   alignItems: 'center',
@@ -745,9 +745,9 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                       {activeResult.riskLevel === 'suspicious' && t.scanner.riskMedium}
                       {activeResult.riskLevel === 'safe' && t.scanner.riskLow}
                     </span>
-                    <span style={{ fontSize: '0.75rem', color: '#64748B' }}>• {activeResult.entity}</span>
+                    <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>• {activeResult.entity}</span>
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', color: '#0F172A', fontWeight: '700', wordBreak: 'break-all' }}>
+                  <h3 style={{ fontSize: '1.25rem', color: '#F8FAFC', fontWeight: '700', wordBreak: 'break-all' }}>
                     {activeResult.url}
                   </h3>
                 </div>
@@ -756,10 +756,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               {/* Threat Gauge */}
               <div style={{
                 textAlign: 'right',
-                backgroundColor: '#F8FAFC',
+                backgroundColor: '#1E1E24',
                 padding: '8px 18px',
                 borderRadius: '10px',
-                border: '1px solid rgba(15, 23, 42, 0.08)'
+                border: '1px solid rgba(255, 255, 255, 0.08)'
               }}>
                 <div style={{ fontSize: '0.72rem', color: '#94A3B8', textTransform: 'uppercase' }}>Threat Score</div>
                 <div style={{
@@ -817,7 +817,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               <p style={{
                 fontSize: '1.05rem',
                 lineHeight: '1.6',
-                color: '#0F172A',
+                color: '#F8FAFC',
                 fontWeight: '600'
               }}>
                 {activeResult.summaryByLang?.[currentLang] || activeResult.summaryByLang?.en || ''}
@@ -835,11 +835,11 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               {/* Left: Safe Cloud Screenshot (Non-Clickable) */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0F172A', fontSize: '0.88rem', fontWeight: '600' }}>
-                    <Eye size={16} color="#0284C7" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#F8FAFC', fontSize: '0.88rem', fontWeight: '600' }}>
+                    <Eye size={16} color="#38BDF8" />
                     <span>{t.scanner.screenshotTitle}</span>
                   </div>
-                  <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: '600' }}>Isolated Sandbox</span>
+                  <span style={{ fontSize: '0.72rem', color: '#10B981', fontWeight: '600' }}>Isolated Sandbox</span>
                 </div>
 
                 {/* Device Frame (Phone vs Desktop) */}
@@ -882,7 +882,7 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                   )}
                 </div>
 
-                <div style={{ fontSize: '0.74rem', color: '#64748B', textAlign: 'center', marginTop: '10px' }}>
+                <div style={{ fontSize: '0.74rem', color: '#94A3B8', textAlign: 'center', marginTop: '10px' }}>
                   {t.scanner.screenshotNotice}
                 </div>
               </div>
@@ -890,8 +890,8 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
               {/* Right: Technical Insights Accordion */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <Layers size={18} color="#0284C7" />
-                  <h4 style={{ color: '#0F172A', fontSize: '1rem', fontWeight: '700' }}>
+                  <Layers size={18} color="#38BDF8" />
+                  <h4 style={{ color: '#F8FAFC', fontSize: '1rem', fontWeight: '700' }}>
                     {t.scanner.techInsights}
                   </h4>
                 </div>
@@ -900,10 +900,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                   
                   {/* Domain & WHOIS */}
                   <div style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'rgba(26, 26, 30, 0.75)',
                     borderRadius: '8px',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
                     overflow: 'hidden'
                   }}>
                     <button
@@ -916,33 +916,33 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Globe size={15} color="#0284C7" />
+                        <Globe size={15} color="#38BDF8" />
                         <span>Domain & Host Origin</span>
                       </div>
                       {accordionOpen.domain ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
                     {accordionOpen.domain && (
-                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#475569' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#94A3B8' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span>{t.scanner.domainAge}:</span>
-                          <strong style={{ color: activeResult.riskLevel === 'critical' ? '#DC2626' : '#0F172A' }}>
+                          <strong style={{ color: activeResult.riskLevel === 'critical' ? '#F87171' : '#F8FAFC' }}>
                             {activeResult.forensics?.domainAge}
                           </strong>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span>Registrar:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.registrar}</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.registrar}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0' }}>
                           <span>{t.scanner.ipLocation}:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.hostIp} ({activeResult.forensics?.geoCountry})</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.hostIp} ({activeResult.forensics?.geoCountry})</span>
                         </div>
                       </div>
                     )}
@@ -950,10 +950,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
 
                   {/* SSL & Encryption */}
                   <div style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'rgba(26, 26, 30, 0.75)',
                     borderRadius: '8px',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
                     overflow: 'hidden'
                   }}>
                     <button
@@ -966,27 +966,27 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Lock size={15} color="#0284C7" />
+                        <Lock size={15} color="#38BDF8" />
                         <span>SSL / TLS Security Profile</span>
                       </div>
                       {accordionOpen.ssl ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
                     {accordionOpen.ssl && (
-                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#475569' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#94A3B8' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span>{t.scanner.sslIssuer}:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.sslIssuer}</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.sslIssuer}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0' }}>
                           <span>Autonomous System:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.asn}</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.asn}</span>
                         </div>
                       </div>
                     )}
@@ -994,10 +994,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
 
                   {/* Form & Payload Audit */}
                   <div style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'rgba(26, 26, 30, 0.75)',
                     borderRadius: '8px',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
                     overflow: 'hidden'
                   }}>
                     <button
@@ -1010,29 +1010,29 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Activity size={15} color="#0284C7" />
+                        <Activity size={15} color="#38BDF8" />
                         <span>Form Targets & Payload Analysis</span>
                       </div>
                       {accordionOpen.form ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
                     {accordionOpen.form && (
-                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#475569' }}>
-                        <div style={{ padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#94A3B8' }}>
+                        <div style={{ padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span style={{ display: 'block', color: '#64748B', marginBottom: '2px' }}>{t.scanner.formAction}:</span>
-                          <code style={{ color: '#D97706', fontSize: '0.74rem', background: '#F1F5F9', padding: '2px 6px', borderRadius: '4px' }}>
+                          <code style={{ color: '#FBBF24', fontSize: '0.74rem', background: '#161618', padding: '2px 6px', borderRadius: '4px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                             {activeResult.forensics?.formAction}
                           </code>
                         </div>
                         <div style={{ padding: '4px 0' }}>
                           <span style={{ display: 'block', color: '#64748B', marginBottom: '2px' }}>{t.scanner.apkPayload}:</span>
-                          <strong style={{ color: activeResult.forensics?.payloadDetected.includes('None') ? '#059669' : '#DC2626' }}>
+                          <strong style={{ color: activeResult.forensics?.payloadDetected.includes('None') ? '#10B981' : '#F87171' }}>
                             {activeResult.forensics?.payloadDetected}
                           </strong>
                         </div>
@@ -1042,10 +1042,10 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
 
                   {/* External Reputation Feeds */}
                   <div style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'rgba(26, 26, 30, 0.75)',
                     borderRadius: '8px',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
                     overflow: 'hidden'
                   }}>
                     <button
@@ -1058,31 +1058,31 @@ Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByL
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Shield size={15} color="#0284C7" />
+                        <Shield size={15} color="#38BDF8" />
                         <span>External Threat Feeds & CERT-In</span>
                       </div>
                       {accordionOpen.blacklists ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
                     {accordionOpen.blacklists && (
-                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#475569' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                      <div style={{ padding: '0 14px 14px', fontSize: '0.8rem', color: '#94A3B8' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span>VirusTotal:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.blacklists?.virusTotal}</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.blacklists?.virusTotal}</span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                           <span>Google Safe Browsing:</span>
-                          <span style={{ color: '#0F172A' }}>{activeResult.forensics?.blacklists?.googleSafeBrowsing}</span>
+                          <span style={{ color: '#F8FAFC' }}>{activeResult.forensics?.blacklists?.googleSafeBrowsing}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0' }}>
                           <span>I4C / SmishWatch:</span>
-                          <span style={{ color: '#D97706' }}>{activeResult.forensics?.blacklists?.certInSmishWatch}</span>
+                          <span style={{ color: '#FBBF24' }}>{activeResult.forensics?.blacklists?.certInSmishWatch}</span>
                         </div>
                       </div>
                     )}

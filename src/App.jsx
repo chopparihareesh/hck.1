@@ -30,7 +30,7 @@ export function App() {
   };
 
   return (
-    <KineticGrid globalColor="light">
+    <KineticGrid globalColor="dark">
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'transparent' }}>
       {/* Global Navigation Header */}
       <Navbar

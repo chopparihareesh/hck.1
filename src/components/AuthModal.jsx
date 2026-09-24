@@ -100,9 +100,9 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
         style={{
           width: '100%',
           maxWidth: '480px',
-          backgroundColor: '#FFFFFF',
-          border: '1px solid rgba(15, 23, 42, 0.1)',
-          boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.2)',
+          backgroundColor: '#161618',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
           borderRadius: '16px',
           overflow: 'hidden',
           position: 'relative'
@@ -111,17 +111,17 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
         {/* Header */}
         <div style={{
           padding: '20px 24px',
-          borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          backgroundColor: '#F8FAFC'
+          backgroundColor: '#111113'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
               borderRadius: '8px',
               overflow: 'hidden',
-              border: '1px solid rgba(15, 23, 42, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               display: 'flex',
               alignItems: 'center',
               backgroundColor: '#FACC15',
@@ -139,10 +139,10 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
               />
             </div>
             <div>
-              <h3 style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: '700' }}>
+              <h3 style={{ color: '#F8FAFC', fontSize: '1.1rem', fontWeight: '700' }}>
                 {authRole === 'citizen' ? 'Citizen Sign In' : 'I4C / Cyber Cell Portal'}
               </h3>
-              <p style={{ color: '#475569', fontSize: '0.75rem' }}>
+              <p style={{ color: '#94A3B8', fontSize: '0.75rem' }}>
                 Secure Access & Telemetry Node
               </p>
             </div>
@@ -152,7 +152,7 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#64748B',
+              color: '#94A3B8',
               cursor: 'pointer',
               padding: '6px'
             }}
@@ -164,8 +164,8 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
         {/* Role Toggle: Citizen vs Law Enforcement */}
         <div style={{
           display: 'flex',
-          borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
-          backgroundColor: '#F1F5F9'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          backgroundColor: '#1E1E24'
         }}>
           <button
             type="button"
@@ -175,10 +175,10 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
               padding: '12px',
               fontSize: '0.86rem',
               fontWeight: authRole === 'citizen' ? '700' : '500',
-              color: authRole === 'citizen' ? '#0284C7' : '#64748B',
-              backgroundColor: authRole === 'citizen' ? '#FFFFFF' : 'transparent',
+              color: authRole === 'citizen' ? '#38BDF8' : '#94A3B8',
+              backgroundColor: authRole === 'citizen' ? '#161618' : 'transparent',
               border: 'none',
-              borderBottom: authRole === 'citizen' ? '2px solid #0284C7' : '2px solid transparent',
+              borderBottom: authRole === 'citizen' ? '2px solid #38BDF8' : '2px solid transparent',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -198,10 +198,10 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
               padding: '12px',
               fontSize: '0.86rem',
               fontWeight: authRole === 'analyst' ? '700' : '500',
-              color: authRole === 'analyst' ? '#D97706' : '#64748B',
-              backgroundColor: authRole === 'analyst' ? '#FFFFFF' : 'transparent',
+              color: authRole === 'analyst' ? '#FBBF24' : '#94A3B8',
+              backgroundColor: authRole === 'analyst' ? '#161618' : 'transparent',
               border: 'none',
-              borderBottom: authRole === 'analyst' ? '2px solid #D97706' : '2px solid transparent',
+              borderBottom: authRole === 'analyst' ? '2px solid #FBBF24' : '2px solid transparent',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -217,15 +217,15 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
         {/* Informational Reassurance Notice */}
         <div style={{
           padding: '10px 20px',
-          backgroundColor: 'rgba(2, 132, 199, 0.06)',
-          borderBottom: '1px solid rgba(2, 132, 199, 0.12)',
+          backgroundColor: 'rgba(56, 189, 248, 0.1)',
+          borderBottom: '1px solid rgba(56, 189, 248, 0.2)',
           display: 'flex',
           alignItems: 'flex-start',
           gap: '8px',
           fontSize: '0.78rem',
-          color: '#475569'
+          color: '#94A3B8'
         }}>
-          <Info size={16} color="#0284C7" style={{ flexShrink: 0, marginTop: '2px' }} />
+          <Info size={16} color="#38BDF8" style={{ flexShrink: 0, marginTop: '2px' }} />
           <span>
             <strong>Scanning links on Sfynbox does not require an account.</strong> Sign in to sync your scan history across devices or access law enforcement takedown tools.
           </span>
@@ -238,11 +238,11 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
               textAlign: 'center',
               padding: '30px 10px'
             }}>
-              <CheckCircle2 size={48} color="#16A34A" style={{ margin: '0 auto 16px' }} />
-              <h4 style={{ color: '#0F172A', fontSize: '1.2rem', marginBottom: '8px' }}>
+              <CheckCircle2 size={48} color="#10B981" style={{ margin: '0 auto 16px' }} />
+              <h4 style={{ color: '#F8FAFC', fontSize: '1.2rem', marginBottom: '8px' }}>
                 {successMsg}
               </h4>
-              <p style={{ color: '#475569', fontSize: '0.85rem' }}>
+              <p style={{ color: '#94A3B8', fontSize: '0.85rem' }}>
                 Redirecting you to your secure session...
               </p>
             </div>
@@ -257,9 +257,9 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                     flex: 1,
                     padding: '8px',
                     borderRadius: '8px',
-                    border: authMethod === 'phone' ? '1px solid #0284C7' : '1px solid rgba(15, 23, 42, 0.1)',
-                    backgroundColor: authMethod === 'phone' ? 'rgba(2, 132, 199, 0.1)' : '#F8FAFC',
-                    color: authMethod === 'phone' ? '#0284C7' : '#64748B',
+                    border: authMethod === 'phone' ? '1px solid #38BDF8' : '1px solid rgba(255, 255, 255, 0.1)',
+                    backgroundColor: authMethod === 'phone' ? 'rgba(56, 189, 248, 0.15)' : '#1E1E24',
+                    color: authMethod === 'phone' ? '#38BDF8' : '#94A3B8',
                     fontSize: '0.82rem',
                     fontWeight: '600',
                     cursor: 'pointer'
@@ -274,9 +274,9 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                     flex: 1,
                     padding: '8px',
                     borderRadius: '8px',
-                    border: authMethod === 'email' ? '1px solid #0284C7' : '1px solid rgba(15, 23, 42, 0.1)',
-                    backgroundColor: authMethod === 'email' ? 'rgba(2, 132, 199, 0.1)' : '#F8FAFC',
-                    color: authMethod === 'email' ? '#0284C7' : '#64748B',
+                    border: authMethod === 'email' ? '1px solid #38BDF8' : '1px solid rgba(255, 255, 255, 0.1)',
+                    backgroundColor: authMethod === 'email' ? 'rgba(56, 189, 248, 0.15)' : '#1E1E24',
+                    color: authMethod === 'email' ? '#38BDF8' : '#94A3B8',
                     fontSize: '0.82rem',
                     fontWeight: '600',
                     cursor: 'pointer'
@@ -292,23 +292,23 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                   {!otpSent ? (
                     <form onSubmit={handleSendOtp}>
                       <div style={{ marginBottom: '18px' }}>
-                        <label style={{ display: 'block', fontSize: '0.82rem', color: '#334155', marginBottom: '6px', fontWeight: '500' }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', color: '#CBD5E1', marginBottom: '6px', fontWeight: '500' }}>
                           Enter Mobile Number (Indian Telecom)
                         </label>
                         <div style={{
                           display: 'flex',
                           alignItems: 'center',
-                          backgroundColor: '#F8FAFC',
-                          border: '1px solid rgba(15, 23, 42, 0.15)',
+                          backgroundColor: '#1E1E24',
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
                           borderRadius: '8px',
                           overflow: 'hidden'
                         }}>
                           <span style={{
                             padding: '10px 14px',
-                            backgroundColor: '#F1F5F9',
-                            color: '#475569',
+                            backgroundColor: '#161618',
+                            color: '#94A3B8',
                             fontSize: '0.9rem',
-                            borderRight: '1px solid rgba(15, 23, 42, 0.1)'
+                            borderRight: '1px solid rgba(255, 255, 255, 0.1)'
                           }}>
                             +91
                           </span>
@@ -325,12 +325,12 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                               border: 'none',
                               outline: 'none',
                               padding: '10px 14px',
-                              color: '#0F172A',
+                              color: '#F8FAFC',
                               fontSize: '0.95rem'
                             }}
                           />
                         </div>
-                        <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '6px' }}>
+                        <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginTop: '6px' }}>
                           We will send a 6-digit verification code to this number.
                         </div>
                       </div>
@@ -347,13 +347,13 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                   ) : (
                     <form onSubmit={handleVerifyOtp}>
                       <div style={{ marginBottom: '18px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '4px' }}>
-                          Enter 6-digit code sent to <strong>+91 {phoneNumber}</strong>
+                        <div style={{ fontSize: '0.85rem', color: '#94A3B8', marginBottom: '4px' }}>
+                          Enter 6-digit code sent to <strong style={{ color: '#F8FAFC' }}>+91 {phoneNumber}</strong>
                         </div>
                         <button
                           type="button"
                           onClick={() => setOtpSent(false)}
-                          style={{ background: 'none', border: 'none', color: '#0284C7', fontSize: '0.75rem', cursor: 'pointer', textDecoration: 'underline' }}
+                          style={{ background: 'none', border: 'none', color: '#38BDF8', fontSize: '0.75rem', cursor: 'pointer', textDecoration: 'underline' }}
                         >
                           Change Number
                         </button>
@@ -374,10 +374,10 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                               textAlign: 'center',
                               fontSize: '1.2rem',
                               fontWeight: '700',
-                              backgroundColor: '#F8FAFC',
-                              border: digit ? '1.5px solid #0284C7' : '1px solid rgba(15, 23, 42, 0.15)',
+                              backgroundColor: '#1E1E24',
+                              border: digit ? '1.5px solid #38BDF8' : '1px solid rgba(255, 255, 255, 0.12)',
                               borderRadius: '8px',
-                              color: '#0F172A',
+                              color: '#F8FAFC',
                               outline: 'none'
                             }}
                           />
@@ -393,8 +393,8 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                         {loading ? 'Verifying...' : 'Verify & Continue'}
                       </button>
 
-                      <div style={{ textAlign: 'center', fontSize: '0.76rem', color: '#64748B' }}>
-                        Resend OTP in <span style={{ color: '#D97706' }}>00:{otpTimer < 10 ? `0${otpTimer}` : otpTimer}</span>
+                      <div style={{ textAlign: 'center', fontSize: '0.76rem', color: '#94A3B8' }}>
+                        Resend OTP in <span style={{ color: '#FBBF24' }}>00:{otpTimer < 10 ? `0${otpTimer}` : otpTimer}</span>
                       </div>
                     </form>
                   )}
@@ -406,7 +406,7 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                 <form onSubmit={handlePasswordLogin}>
                   {authRole === 'analyst' && (
                     <div style={{ marginBottom: '14px' }}>
-                      <label style={{ display: 'block', fontSize: '0.8rem', color: '#334155', marginBottom: '4px' }}>
+                      <label style={{ display: 'block', fontSize: '0.8rem', color: '#CBD5E1', marginBottom: '4px' }}>
                         I4C / Police Officer Badge ID
                       </label>
                       <input
@@ -417,11 +417,11 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                         required
                         style={{
                           width: '100%',
-                          backgroundColor: '#F8FAFC',
-                          border: '1px solid rgba(15, 23, 42, 0.15)',
+                          backgroundColor: '#1E1E24',
+                          border: '1px solid rgba(255, 255, 255, 0.12)',
                           borderRadius: '8px',
                           padding: '10px 12px',
-                          color: '#0F172A',
+                          color: '#F8FAFC',
                           fontSize: '0.9rem',
                           outline: 'none'
                         }}
@@ -430,7 +430,7 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                   )}
 
                   <div style={{ marginBottom: '14px' }}>
-                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#334155', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#CBD5E1', marginBottom: '4px' }}>
                       {authRole === 'analyst' ? 'Official Gov Email (.gov.in / .nic.in)' : 'Email Address'}
                     </label>
                     <input
@@ -441,11 +441,11 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                       required
                       style={{
                         width: '100%',
-                        backgroundColor: '#F8FAFC',
-                        border: '1px solid rgba(15, 23, 42, 0.15)',
+                        backgroundColor: '#1E1E24',
+                        border: '1px solid rgba(255, 255, 255, 0.12)',
                         borderRadius: '8px',
                         padding: '10px 12px',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.9rem',
                         outline: 'none'
                       }}
@@ -453,7 +453,7 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                   </div>
 
                   <div style={{ marginBottom: '20px' }}>
-                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#334155', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '0.8rem', color: '#CBD5E1', marginBottom: '4px' }}>
                       Password
                     </label>
                     <input
@@ -464,11 +464,11 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                       required
                       style={{
                         width: '100%',
-                        backgroundColor: '#F8FAFC',
-                        border: '1px solid rgba(15, 23, 42, 0.15)',
+                        backgroundColor: '#1E1E24',
+                        border: '1px solid rgba(255, 255, 255, 0.12)',
                         borderRadius: '8px',
                         padding: '10px 12px',
-                        color: '#0F172A',
+                        color: '#F8FAFC',
                         fontSize: '0.9rem',
                         outline: 'none'
                       }}
@@ -491,11 +491,11 @@ export function AuthModal({ isOpen, onClose, onLoginSuccess }) {
                 position: 'relative',
                 textAlign: 'center',
                 margin: '20px 0 16px',
-                color: '#64748B',
+                color: '#94A3B8',
                 fontSize: '0.78rem'
               }}>
-                <div style={{ height: '1px', background: 'rgba(15, 23, 42, 0.08)', position: 'absolute', top: '50%', left: 0, right: 0 }}></div>
-                <span style={{ position: 'relative', background: '#FFFFFF', padding: '0 12px' }}>
+                <div style={{ height: '1px', background: 'rgba(255, 255, 255, 0.08)', position: 'absolute', top: '50%', left: 0, right: 0 }}></div>
+                <span style={{ position: 'relative', background: '#161618', padding: '0 12px' }}>
                   or continue with
                 </span>
               </div>

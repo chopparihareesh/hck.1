@@ -123,20 +123,20 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
           flexWrap: 'wrap',
           gap: '16px',
           marginBottom: '30px',
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backgroundColor: 'rgba(26, 26, 30, 0.85)',
           padding: '16px 24px',
           borderRadius: '16px',
-          border: '1px solid rgba(15, 23, 42, 0.08)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)'
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <h1 style={{ fontSize: '1.4rem', color: '#0F172A', fontWeight: '800' }}>
+              <h1 style={{ fontSize: '1.4rem', color: '#F8FAFC', fontWeight: '800' }}>
                 Sfynbox Threat Intelligence & Operations Hub
               </h1>
               <span className="live-dot-green"></span>
             </div>
-            <p style={{ color: '#475569', fontSize: '0.82rem' }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.82rem' }}>
               Switch perspective between Citizen personal protection and Law Enforcement triage.
             </p>
           </div>
@@ -144,10 +144,10 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
           {/* Perspective Toggle */}
           <div style={{
             display: 'flex',
-            backgroundColor: '#F1F5F9',
+            backgroundColor: '#1E1E24',
             padding: '4px',
             borderRadius: '10px',
-            border: '1px solid rgba(15, 23, 42, 0.08)'
+            border: '1px solid rgba(255, 255, 255, 0.08)'
           }}>
             <button
               onClick={() => setRoleMode('citizen')}
@@ -159,7 +159,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                 borderRadius: '8px',
                 border: 'none',
                 backgroundColor: roleMode === 'citizen' ? '#0284C7' : 'transparent',
-                color: roleMode === 'citizen' ? '#FFFFFF' : '#475569',
+                color: roleMode === 'citizen' ? '#FFFFFF' : '#94A3B8',
                 fontWeight: '700',
                 fontSize: '0.86rem',
                 cursor: 'pointer',
@@ -180,7 +180,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                 borderRadius: '8px',
                 border: 'none',
                 backgroundColor: roleMode === 'analyst' ? '#D97706' : 'transparent',
-                color: roleMode === 'analyst' ? '#FFFFFF' : '#475569',
+                color: roleMode === 'analyst' ? '#FFFFFF' : '#94A3B8',
                 fontWeight: '700',
                 fontSize: '0.86rem',
                 cursor: 'pointer',
@@ -224,21 +224,21 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
               marginBottom: '24px'
             }}>
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.78rem', color: '#475569', textTransform: 'uppercase' }}>My Scanned Links</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#0284C7', fontFamily: 'var(--font-mono)' }}>14 Links</div>
-                <div style={{ fontSize: '0.74rem', color: '#16A34A', marginTop: '4px' }}>All isolated in cloud sandbox</div>
+                <div style={{ fontSize: '0.78rem', color: '#94A3B8', textTransform: 'uppercase' }}>My Scanned Links</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#38BDF8', fontFamily: 'var(--font-mono)' }}>14 Links</div>
+                <div style={{ fontSize: '0.74rem', color: '#10B981', marginTop: '4px' }}>All isolated in cloud sandbox</div>
               </div>
 
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.78rem', color: '#475569', textTransform: 'uppercase' }}>Scams Averted</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#DC2626', fontFamily: 'var(--font-mono)' }}>3 Blocked</div>
-                <div style={{ fontSize: '0.74rem', color: '#DC2626', marginTop: '4px' }}>BESCOM bill & IndiaPost traps</div>
+                <div style={{ fontSize: '0.78rem', color: '#94A3B8', textTransform: 'uppercase' }}>Scams Averted</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#F87171', fontFamily: 'var(--font-mono)' }}>3 Blocked</div>
+                <div style={{ fontSize: '0.74rem', color: '#F87171', marginTop: '4px' }}>BESCOM bill & IndiaPost traps</div>
               </div>
 
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.78rem', color: '#475569', textTransform: 'uppercase' }}>Helpline 1930 Sync</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#16A34A', fontFamily: 'var(--font-mono)' }}>Active</div>
-                <div style={{ fontSize: '0.74rem', color: '#64748B', marginTop: '4px' }}>1-Click Golden Hour Dispatch</div>
+                <div style={{ fontSize: '0.78rem', color: '#94A3B8', textTransform: 'uppercase' }}>Helpline 1930 Sync</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#10B981', fontFamily: 'var(--font-mono)' }}>Active</div>
+                <div style={{ fontSize: '0.74rem', color: '#94A3B8', marginTop: '4px' }}>1-Click Golden Hour Dispatch</div>
               </div>
             </div>
 
@@ -246,8 +246,8 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
             <div className="glass-panel" style={{ padding: '28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
                 <div>
-                  <h3 style={{ color: '#0F172A', fontSize: '1.2rem', fontWeight: '700' }}>Recent Citizen Scan History</h3>
-                  <p style={{ color: '#475569', fontSize: '0.8rem' }}>URLs tested from your devices (No personal device data was shared with target sites)</p>
+                  <h3 style={{ color: '#F8FAFC', fontSize: '1.2rem', fontWeight: '700' }}>Recent Citizen Scan History</h3>
+                  <p style={{ color: '#94A3B8', fontSize: '0.8rem' }}>URLs tested from your devices (No personal device data was shared with target sites)</p>
                 </div>
                 <button
                   onClick={() => onLaunchScan()}
@@ -262,7 +262,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.86rem', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(15, 23, 42, 0.08)', color: '#475569' }}>
+                    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', color: '#94A3B8' }}>
                       <th style={{ padding: '12px 10px' }}>Reference & URL</th>
                       <th style={{ padding: '12px 10px' }}>Date / Timestamp</th>
                       <th style={{ padding: '12px 10px' }}>Verdict</th>
@@ -273,12 +273,12 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                   </thead>
                   <tbody>
                     {citizenHistory.map((item) => (
-                      <tr key={item.id} style={{ borderBottom: '1px solid rgba(15, 23, 42, 0.05)' }}>
+                      <tr key={item.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                         <td style={{ padding: '14px 10px' }}>
-                          <div style={{ fontWeight: '600', color: '#0F172A' }}>{item.verdict}</div>
-                          <div style={{ color: '#0284C7', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>{item.url}</div>
+                          <div style={{ fontWeight: '600', color: '#F8FAFC' }}>{item.verdict}</div>
+                          <div style={{ color: '#38BDF8', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>{item.url}</div>
                         </td>
-                        <td style={{ padding: '14px 10px', color: '#475569', fontSize: '0.8rem' }}>
+                        <td style={{ padding: '14px 10px', color: '#94A3B8', fontSize: '0.8rem' }}>
                           {item.date}
                         </td>
                         <td style={{ padding: '14px 10px' }}>
@@ -286,11 +286,11 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                             {item.riskLevel.toUpperCase()}
                           </span>
                         </td>
-                        <td style={{ padding: '14px 10px', color: '#334155', fontSize: '0.8rem' }}>
+                        <td style={{ padding: '14px 10px', color: '#CBD5E1', fontSize: '0.8rem' }}>
                           {item.device}
                         </td>
                         <td style={{ padding: '14px 10px' }}>
-                          <span style={{ color: item.status.includes('Reported') ? '#16A34A' : '#D97706', fontSize: '0.82rem', fontWeight: '500' }}>
+                          <span style={{ color: item.status.includes('Reported') ? '#10B981' : '#FBBF24', fontSize: '0.82rem', fontWeight: '500' }}>
                             {item.status}
                           </span>
                         </td>
@@ -335,27 +335,27 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
               marginBottom: '24px'
             }}>
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.76rem', color: '#475569', textTransform: 'uppercase' }}>Active Smishing Campaigns</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#D97706', fontFamily: 'var(--font-mono)' }}>148 Active</div>
-                <div style={{ fontSize: '0.72rem', color: '#DC2626', marginTop: '4px' }}>+18 zero-day domains detected today</div>
+                <div style={{ fontSize: '0.76rem', color: '#94A3B8', textTransform: 'uppercase' }}>Active Smishing Campaigns</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#FBBF24', fontFamily: 'var(--font-mono)' }}>148 Active</div>
+                <div style={{ fontSize: '0.72rem', color: '#F87171', marginTop: '4px' }}>+18 zero-day domains detected today</div>
               </div>
 
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.76rem', color: '#475569', textTransform: 'uppercase' }}>Section 69A Notices Issued</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#0284C7', fontFamily: 'var(--font-mono)' }}>412 Domains</div>
-                <div style={{ fontSize: '0.72rem', color: '#16A34A', marginTop: '4px' }}>Avg registrar takedown: 3.2 hours</div>
+                <div style={{ fontSize: '0.76rem', color: '#94A3B8', textTransform: 'uppercase' }}>Section 69A Notices Issued</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#38BDF8', fontFamily: 'var(--font-mono)' }}>412 Domains</div>
+                <div style={{ fontSize: '0.72rem', color: '#10B981', marginTop: '4px' }}>Avg registrar takedown: 3.2 hours</div>
               </div>
 
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.76rem', color: '#475569', textTransform: 'uppercase' }}>Most Targeted Entity</div>
-                <div style={{ fontSize: '1.3rem', fontWeight: '800', color: '#DC2626' }}>BESCOM / State Power</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '4px' }}>36% of active smishing volume</div>
+                <div style={{ fontSize: '0.76rem', color: '#94A3B8', textTransform: 'uppercase' }}>Most Targeted Entity</div>
+                <div style={{ fontSize: '1.3rem', fontWeight: '800', color: '#F87171' }}>BESCOM / State Power</div>
+                <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginTop: '4px' }}>36% of active smishing volume</div>
               </div>
 
               <div className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '0.76rem', color: '#475569', textTransform: 'uppercase' }}>I4C Sensor Grid Status</div>
-                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#16A34A', fontFamily: 'var(--font-mono)' }}>ONLINE</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '4px' }}>28 State Cyber Cells Connected</div>
+                <div style={{ fontSize: '0.76rem', color: '#94A3B8', textTransform: 'uppercase' }}>I4C Sensor Grid Status</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#10B981', fontFamily: 'var(--font-mono)' }}>ONLINE</div>
+                <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginTop: '4px' }}>28 State Cyber Cells Connected</div>
               </div>
             </div>
 
@@ -371,8 +371,8 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
               <div className="glass-panel" style={{ padding: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Radio size={18} color="#DC2626" />
-                    <h3 style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: '700' }}>Live Smishing Telemetry</h3>
+                    <Radio size={18} color="#EF4444" />
+                    <h3 style={{ color: '#F8FAFC', fontSize: '1.1rem', fontWeight: '700' }}>Live Smishing Telemetry</h3>
                   </div>
                   <span className="badge badge-danger" style={{ fontSize: '0.7rem' }}>Real-Time</span>
                 </div>
@@ -381,14 +381,14 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  backgroundColor: '#F8FAFC',
+                  backgroundColor: '#1E1E24',
                   padding: '6px 12px',
                   borderRadius: '8px',
-                  border: '1px solid rgba(15, 23, 42, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
                   marginBottom: '14px',
                   gap: '8px'
                 }}>
-                  <Search size={16} color="#0284C7" />
+                  <Search size={16} color="#38BDF8" />
                   <input
                     type="text"
                     placeholder="Filter by domain, brand, or state..."
@@ -398,7 +398,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                       background: 'transparent',
                       border: 'none',
                       outline: 'none',
-                      color: '#0F172A',
+                      color: '#F8FAFC',
                       fontSize: '0.84rem',
                       width: '100%'
                     }}
@@ -412,24 +412,24 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                       key={item.id}
                       onClick={() => onLaunchScan('http://' + item.domain)}
                       style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                        backgroundColor: 'rgba(26, 26, 30, 0.75)',
                         borderRadius: '8px',
-                        border: '1px solid rgba(15, 23, 42, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
                         padding: '12px',
                         cursor: 'pointer',
                         transition: 'border-color 0.15s ease'
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.borderColor = '#0284C7'}
-                      onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.08)'}
+                      onMouseEnter={(e) => e.currentTarget.style.borderColor = '#38BDF8'}
+                      onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <strong style={{ color: '#0284C7', fontFamily: 'var(--font-mono)', fontSize: '0.86rem' }}>
+                        <strong style={{ color: '#38BDF8', fontFamily: 'var(--font-mono)', fontSize: '0.86rem' }}>
                           {item.domain}
                         </strong>
                         <span className="badge badge-danger" style={{ fontSize: '0.65rem' }}>{item.risk}</span>
                       </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#475569' }}>
-                        <span>Impersonating: <strong style={{ color: '#0F172A' }}>{item.brand}</strong></span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#94A3B8' }}>
+                        <span>Impersonating: <strong style={{ color: '#F8FAFC' }}>{item.brand}</strong></span>
                         <span>{item.originState}</span>
                       </div>
                       <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '6px', display: 'flex', justifyContent: 'space-between' }}>
@@ -447,26 +447,26 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                 {/* State Heatmap List */}
                 <div className="glass-panel" style={{ padding: '24px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                    <MapPin size={18} color="#0284C7" />
-                    <h3 style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: '700' }}>Geographic Scam Concentration</h3>
+                    <MapPin size={18} color="#38BDF8" />
+                    <h3 style={{ color: '#F8FAFC', fontSize: '1.1rem', fontWeight: '700' }}>Geographic Scam Concentration</h3>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {STATE_HEATMAP_DATA.slice(0, 6).map((state) => (
                       <div key={state.state} style={{ fontSize: '0.84rem' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                          <span style={{ color: '#0F172A', fontWeight: '600' }}>{state.state}</span>
-                          <span style={{ color: '#475569' }}>
+                          <span style={{ color: '#F8FAFC', fontWeight: '600' }}>{state.state}</span>
+                          <span style={{ color: '#94A3B8' }}>
                             <strong>{state.reports.toLocaleString()}</strong> incidents ({state.primaryTarget})
                           </span>
                         </div>
                         {/* Heat bar */}
-                        <div style={{ height: '6px', backgroundColor: 'rgba(15, 23, 42, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
+                        <div style={{ height: '6px', backgroundColor: 'rgba(255, 255, 255, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
                           <div 
                             style={{ 
                               height: '100%', 
                               width: `${state.threatRate}%`, 
-                              backgroundColor: state.threatRate > 80 ? '#DC2626' : (state.threatRate > 70 ? '#D97706' : '#0284C7'),
+                              backgroundColor: state.threatRate > 80 ? '#EF4444' : (state.threatRate > 70 ? '#F59E0B' : '#0284C7'),
                               borderRadius: '3px'
                             }} 
                           />
@@ -478,7 +478,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
 
                 {/* Top Impersonated Entities */}
                 <div className="glass-panel" style={{ padding: '24px' }}>
-                  <h3 style={{ color: '#0F172A', fontSize: '1.1rem', fontWeight: '700', marginBottom: '14px' }}>
+                  <h3 style={{ color: '#F8FAFC', fontSize: '1.1rem', fontWeight: '700', marginBottom: '14px' }}>
                     Top Impersonated Brand Categories
                   </h3>
 
@@ -486,10 +486,10 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                     {TOP_IMPERSONATED_ENTITIES.map((ent) => (
                       <div key={ent.name}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px' }}>
-                          <span style={{ color: '#334155' }}>{ent.name}</span>
+                          <span style={{ color: '#CBD5E1' }}>{ent.name}</span>
                           <strong style={{ color: ent.color }}>{ent.percentage}%</strong>
                         </div>
-                        <div style={{ height: '6px', backgroundColor: 'rgba(15, 23, 42, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
+                        <div style={{ height: '6px', backgroundColor: 'rgba(255, 255, 255, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
                           <div style={{ height: '100%', width: `${ent.percentage * 2.5}%`, backgroundColor: ent.color, borderRadius: '3px' }} />
                         </div>
                       </div>
@@ -518,10 +518,10 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                     <FileText size={20} />
                   </div>
                   <div>
-                    <h3 style={{ color: '#0F172A', fontSize: '1.2rem', fontWeight: '700' }}>
+                    <h3 style={{ color: '#F8FAFC', fontSize: '1.2rem', fontWeight: '700' }}>
                       Takedown Action Hub: CERT-In Section 69A Directive Generator
                     </h3>
-                    <p style={{ color: '#475569', fontSize: '0.8rem' }}>
+                    <p style={{ color: '#94A3B8', fontSize: '0.8rem' }}>
                       Auto-generates official statutory blocking orders for registrar abuse desks & DoT ISPs.
                     </p>
                   </div>
@@ -529,7 +529,7 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
 
                 {/* Target Selector */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '0.82rem', color: '#475569' }}>Select Threat:</span>
+                  <span style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Select Threat:</span>
                   <select
                     value={selectedThreatForNotice.id}
                     onChange={(e) => {
@@ -537,9 +537,9 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
                       if (found) setSelectedThreatForNotice(found);
                     }}
                     style={{
-                      backgroundColor: '#FFFFFF',
-                      border: '1px solid rgba(15, 23, 42, 0.15)',
-                      color: '#0F172A',
+                      backgroundColor: '#1E1E24',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      color: '#F8FAFC',
                       borderRadius: '8px',
                       padding: '6px 12px',
                       fontSize: '0.84rem',

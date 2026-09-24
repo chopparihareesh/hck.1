@@ -16,16 +16,16 @@ export function Footer({ currentLang, setActivePage }) {
 
   return (
     <footer style={{
-      backgroundColor: '#F8FAFC',
-      borderTop: '1px solid rgba(15, 23, 42, 0.08)',
+      backgroundColor: '#121214',
+      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
       marginTop: '80px',
-      color: '#475569',
+      color: '#94A3B8',
       fontSize: '0.9rem'
     }}>
       {/* Helpline Emergency Escalation Strip */}
       <div style={{
-        background: 'linear-gradient(90deg, rgba(220, 38, 38, 0.08), rgba(217, 119, 6, 0.08), rgba(2, 132, 199, 0.08))',
-        borderBottom: '1px solid rgba(220, 38, 38, 0.2)',
+        background: 'linear-gradient(90deg, rgba(239, 68, 68, 0.12), rgba(245, 158, 11, 0.1), rgba(56, 189, 248, 0.1))',
+        borderBottom: '1px solid rgba(239, 68, 68, 0.25)',
         padding: '16px 20px'
       }}>
         <div className="container" style={{
@@ -40,24 +40,24 @@ export function Footer({ currentLang, setActivePage }) {
               width: '38px',
               height: '38px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(220, 38, 38, 0.12)',
-              border: '1px solid #DC2626',
+              backgroundColor: 'rgba(239, 68, 68, 0.15)',
+              border: '1px solid #EF4444',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#DC2626',
+              color: '#EF4444',
               flexShrink: 0
             }}>
               <PhoneCall size={20} />
             </div>
             <div>
-              <div style={{ color: '#0F172A', fontWeight: '700', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ color: '#F8FAFC', fontWeight: '700', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span>Emergency Cyber Financial Fraud Helpline</span>
                 <span className="badge badge-danger" style={{ fontSize: '0.72rem', padding: '2px 8px' }}>
                   24x7 TOLL-FREE
                 </span>
               </div>
-              <div style={{ color: '#475569', fontSize: '0.84rem' }}>
+              <div style={{ color: '#94A3B8', fontSize: '0.84rem' }}>
                 Lost money to a fake link or unauthorized UPI transaction? Immediately dial <strong>1930</strong> or file at <strong>cybercrime.gov.in</strong>
               </div>
             </div>
@@ -82,7 +82,7 @@ export function Footer({ currentLang, setActivePage }) {
             <a 
               href="https://cybercrime.gov.in" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" 
               className="btn-secondary"
               style={{
                 textDecoration: 'none',
@@ -131,19 +131,19 @@ export function Footer({ currentLang, setActivePage }) {
                     width: 'auto',
                     objectFit: 'contain',
                     display: 'block'
-                  }}
+                  }} 
                 />
               </div>
               <span style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: '800',
                 fontSize: '1.25rem',
-                color: '#0F172A'
+                color: '#F8FAFC'
               }}>
-                SFYN<span style={{ color: '#0284C7' }}>BOX</span>
+                SFYN<span style={{ color: '#38BDF8' }}>BOX</span>
               </span>
             </div>
-            <p style={{ lineHeight: '1.6', fontSize: '0.86rem', color: '#475569', marginBottom: '18px' }}>
+            <p style={{ lineHeight: '1.6', fontSize: '0.86rem', color: '#94A3B8', marginBottom: '18px' }}>
               {t.footer.aboutText}
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -154,16 +154,16 @@ export function Footer({ currentLang, setActivePage }) {
 
           {/* Quick Navigation */}
           <div>
-            <h4 style={{ color: '#0F172A', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Platform Navigation
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li>
                 <button 
                   onClick={() => { setActivePage('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   Universal URL Scanner
                 </button>
@@ -171,9 +171,9 @@ export function Footer({ currentLang, setActivePage }) {
               <li>
                 <button 
                   onClick={() => { setActivePage('check'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   Interactive MicroVM Sandbox
                 </button>
@@ -181,9 +181,9 @@ export function Footer({ currentLang, setActivePage }) {
               <li>
                 <button 
                   onClick={() => { setActivePage('dashboard'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   I4C Cyber Cell Threat Dashboard
                 </button>
@@ -191,9 +191,9 @@ export function Footer({ currentLang, setActivePage }) {
               <li>
                 <button 
                   onClick={() => { setActivePage('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0 }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   Dynamic Sandbox Architecture
                 </button>
@@ -203,16 +203,16 @@ export function Footer({ currentLang, setActivePage }) {
 
           {/* Law Enforcement & APIs */}
           <div>
-            <h4 style={{ color: '#0F172A', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Law Enforcement & APIs
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li>
                 <button 
                   onClick={() => { setActivePage('dashboard'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   <Server size={14} />
                   <span>I4C Telemetry Hub</span>
@@ -221,9 +221,9 @@ export function Footer({ currentLang, setActivePage }) {
               <li>
                 <button 
                   onClick={() => { setActivePage('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   <Terminal size={14} />
                   <span>Law Enforcement API Access</span>
@@ -232,9 +232,9 @@ export function Footer({ currentLang, setActivePage }) {
               <li>
                 <button 
                   onClick={() => { setActivePage('dashboard'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', fontSize: '0.88rem', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   <FileText size={14} />
                   <span>Section 69A IT Act Notices</span>
@@ -245,9 +245,9 @@ export function Footer({ currentLang, setActivePage }) {
                   href="https://cert-in.org.in" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ color: '#475569', textDecoration: 'none', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                  onMouseEnter={(e) => e.target.style.color = '#0284C7'}
-                  onMouseLeave={(e) => e.target.style.color = '#475569'}
+                  style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  onMouseEnter={(e) => e.target.style.color = '#38BDF8'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
                 >
                   <AlertTriangle size={14} />
                   <span>CERT-In Advisories</span>
@@ -259,22 +259,22 @@ export function Footer({ currentLang, setActivePage }) {
 
           {/* Legal & Compliance */}
           <div>
-            <h4 style={{ color: '#0F172A', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Security & Compliance
             </h4>
             <div style={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid rgba(15, 23, 42, 0.08)',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.03)',
+              backgroundColor: '#1E1E24',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
               padding: '14px',
               borderRadius: '8px',
               fontSize: '0.8rem',
               lineHeight: '1.5'
             }}>
-              <p style={{ marginBottom: '8px', color: '#334155' }}>
+              <p style={{ marginBottom: '8px', color: '#CBD5E1' }}>
                 {t.footer.certInNotice}
               </p>
-              <p style={{ color: '#64748B', fontSize: '0.74rem' }}>
+              <p style={{ color: '#94A3B8', fontSize: '0.74rem' }}>
                 All target URLs are evaluated inside ephemeral containers. No user IP or device telemetry is transmitted to investigated websites.
               </p>
             </div>
@@ -283,7 +283,7 @@ export function Footer({ currentLang, setActivePage }) {
 
         {/* Copyright & Disclaimer */}
         <div style={{
-          borderTop: '1px solid rgba(15, 23, 42, 0.08)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
           paddingTop: '24px',
           display: 'flex',
           alignItems: 'center',
@@ -297,11 +297,11 @@ export function Footer({ currentLang, setActivePage }) {
             © {new Date().getFullYear()} Sfynbox Technologies. {t.footer.rights}
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <span style={{ color: '#475569' }}>Security Architecture v2.4</span>
+            <span style={{ color: '#94A3B8' }}>Security Architecture v2.4</span>
             <span>•</span>
-            <span style={{ color: '#0284C7' }}>Bhashini AI v1.2</span>
+            <span style={{ color: '#38BDF8' }}>Bhashini AI v1.2</span>
             <span>•</span>
-            <span style={{ color: '#059669' }}>I4C Node Active</span>
+            <span style={{ color: '#10B981' }}>I4C Node Active</span>
           </div>
         </div>
       </div>

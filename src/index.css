@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #0284C7;
-  --primary-hover: #0369A1;
-  --primary-glow: rgba(2, 132, 199, 0.2);
-  --primary-subtle: rgba(2, 132, 199, 0.08);
-  --accent-amber: #D97706;
-  --accent-amber-glow: rgba(217, 119, 6, 0.2);
-  --accent-danger: #DC2626;
-  --accent-danger-glow: rgba(220, 38, 38, 0.2);
-  --accent-success: #059669;
-  --accent-success-glow: rgba(5, 150, 105, 0.2);
+  --primary: #38BDF8;
+  --primary-hover: #0EA5E9;
+  --primary-glow: rgba(56, 189, 248, 0.25);
+  --primary-subtle: rgba(56, 189, 248, 0.12);
+  --accent-amber: #F59E0B;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
+  --accent-danger: #EF4444;
+  --accent-danger-glow: rgba(239, 68, 68, 0.25);
+  --accent-success: #10B981;
+  --accent-success-glow: rgba(16, 185, 129, 0.25);
   
-  --bg-deep: #FFFFFF;
-  --bg-navy: #F8FAFC;
-  --surface-slate: #FFFFFF;
-  --surface-card: rgba(255, 255, 255, 0.9);
-  --surface-hover: #F1F5F9;
-  --border-subtle: rgba(15, 23, 42, 0.09);
-  --border-focus: rgba(2, 132, 199, 0.45);
+  --bg-deep: #161618;
+  --bg-navy: #1A1A1E;
+  --surface-slate: #202025;
+  --surface-card: rgba(26, 26, 30, 0.78);
+  --surface-hover: rgba(36, 36, 42, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(56, 189, 248, 0.5);
   
-  --text-main: #0F172A;
-  --text-muted: #475569;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
   --text-dim: #64748B;
   
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -33,7 +33,7 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
   
-  --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-glow: 0 0 25px -3px var(--primary-glow);
   --shadow-danger: 0 0 25px -3px var(--accent-danger-glow);
 }
@@ -46,7 +46,7 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #FFFFFF;
+  background-color: #161618;
   color: var(--text-main);
   line-height: 1.5;
   overflow-x: hidden;
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 .cyber-bg {
   background-color: transparent;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 65%);
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1) 0%, transparent 65%);
 }
 
 /* Custom Scrollbar */
@@ -71,10 +71,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #161618;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #2D2D35;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -96,8 +96,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .glass-panel-hover:hover {
   transform: translateY(-2px);
-  border-color: rgba(2, 132, 199, 0.3);
-  box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.15);
 }
 
 /* Glowing Elements */
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--primary);
+  background: #0284C7;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.95rem;
@@ -124,11 +124,11 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
-  box-shadow: 0 3px 12px rgba(2, 132, 199, 0.28);
+  box-shadow: 0 3px 12px rgba(2, 132, 199, 0.35);
 }
 .btn-primary:hover {
-  background: var(--primary-hover);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+  background: #0369A1;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
   transform: translateY(-1px);
 }
 .btn-primary:active {
@@ -140,20 +140,20 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-main);
   font-weight: 500;
   font-size: 0.95rem;
   padding: 10px 20px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 .btn-secondary:hover {
-  background: rgba(15, 23, 42, 0.08);
-  border-color: rgba(2, 132, 199, 0.35);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(56, 189, 248, 0.4);
   color: var(--primary);
 }
 

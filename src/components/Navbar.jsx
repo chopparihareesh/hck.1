@@ -36,19 +36,19 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      backgroundColor: 'rgba(22, 22, 24, 0.88)',
       backdropFilter: 'blur(16px)',
       WebkitBackdropFilter: 'blur(16px)',
-      borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
-      boxShadow: '0 2px 14px rgba(0, 0, 0, 0.04)'
+      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
     }}>
       {/* Top micro-banner for I4C and CERT-In notice */}
       <div style={{
-        backgroundColor: '#F8FAFC',
-        borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
+        backgroundColor: '#111113',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
         padding: '5px 20px',
         fontSize: '0.75rem',
-        color: '#64748B',
+        color: '#94A3B8',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -57,22 +57,22 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span className="live-dot-green" style={{ width: '6px', height: '6px' }}></span>
-          <span style={{ color: '#0F172A', fontWeight: '600' }}>
+          <span style={{ color: '#F8FAFC', fontWeight: '600' }}>
             National Cyber Crime Reporting Telemetry Node #IN-I4C-992
           </span>
-          <span style={{ color: 'rgba(15, 23, 42, 0.2)' }}>|</span>
-          <span style={{ color: '#D97706', fontWeight: '600' }}>Incident Helpline: Dial 1930</span>
+          <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
+          <span style={{ color: '#F59E0B', fontWeight: '600' }}>Incident Helpline: Dial 1930</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#0284C7', fontWeight: '500' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#0284C7' }}></span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#38BDF8', fontWeight: '500' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#38BDF8' }}></span>
             Bhashini AI Language Engine Active
           </span>
           <a 
             href="https://cybercrime.gov.in" 
             target="_blank" 
             rel="noopener noreferrer" 
-            style={{ color: '#64748B', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
+            style={{ color: '#94A3B8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
           >
             cybercrime.gov.in <ExternalLink size={10} />
           </a>
@@ -134,17 +134,17 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 fontWeight: '800',
                 fontSize: '1.45rem',
                 letterSpacing: '0.04em',
-                color: '#0F172A'
+                color: '#F8FAFC'
               }}>
-                SFYN<span style={{ color: '#0284C7' }}>BOX</span>
+                SFYN<span style={{ color: '#38BDF8' }}>BOX</span>
               </span>
               <span style={{
                 fontSize: '0.65rem',
                 padding: '2px 6px',
                 borderRadius: '4px',
-                backgroundColor: 'rgba(2, 132, 199, 0.1)',
-                color: '#0284C7',
-                border: '1px solid rgba(2, 132, 199, 0.3)',
+                backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                color: '#38BDF8',
+                border: '1px solid rgba(56, 189, 248, 0.35)',
                 fontWeight: '700',
                 textTransform: 'uppercase'
               }}>
@@ -153,7 +153,7 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
             </div>
             <div style={{
               fontSize: '0.68rem',
-              color: '#64748B',
+              color: '#94A3B8',
               letterSpacing: '0.02em',
               fontWeight: '500'
             }}>
@@ -171,9 +171,9 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 style={{
-                  background: isActive ? 'rgba(2, 132, 199, 0.1)' : 'transparent',
-                  color: isActive ? '#0284C7' : '#475569',
-                  border: isActive ? '1px solid rgba(2, 132, 199, 0.25)' : '1px solid transparent',
+                  background: isActive ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
+                  color: isActive ? '#38BDF8' : '#94A3B8',
+                  border: isActive ? '1px solid rgba(56, 189, 248, 0.3)' : '1px solid transparent',
                   padding: '8px 14px',
                   borderRadius: '8px',
                   fontSize: '0.92rem',
@@ -186,13 +186,13 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.color = '#0284C7';
-                    e.currentTarget.style.backgroundColor = 'rgba(2, 132, 199, 0.06)';
+                    e.currentTarget.style.color = '#38BDF8';
+                    e.currentTarget.style.backgroundColor = 'rgba(56, 189, 248, 0.08)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.color = '#475569';
+                    e.currentTarget.style.color = '#94A3B8';
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }
                 }}
@@ -214,22 +214,22 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                backgroundColor: '#FFFFFF',
-                border: '1px solid rgba(15, 23, 42, 0.12)',
-                color: '#0F172A',
+                backgroundColor: '#1E1E24',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: '#F8FAFC',
                 padding: '7px 12px',
                 borderRadius: '8px',
                 fontSize: '0.85rem',
                 fontWeight: '500',
                 cursor: 'pointer',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
                 transition: 'all 0.2s ease'
               }}
               title="Change Language (Bhashini AI Integration)"
             >
-              <Globe size={15} color="#0284C7" />
+              <Globe size={15} color="#38BDF8" />
               <span>{currentLangObj.nativeName}</span>
-              <ChevronDown size={14} color="#64748B" />
+              <ChevronDown size={14} color="#94A3B8" />
             </button>
 
             {/* Dropdown Options */}
@@ -240,10 +240,10 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                   top: '115%',
                   right: 0,
                   width: '190px',
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid rgba(15, 23, 42, 0.1)',
+                  backgroundColor: '#1E1E24',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '10px',
-                  boxShadow: '0 12px 30px rgba(0, 0, 0, 0.12)',
+                  boxShadow: '0 12px 30px rgba(0, 0, 0, 0.5)',
                   padding: '6px',
                   zIndex: 200
                 }}
@@ -251,17 +251,17 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 <div style={{
                   padding: '6px 8px',
                   fontSize: '0.72rem',
-                  color: '#0284C7',
+                  color: '#38BDF8',
                   fontWeight: '700',
                   textTransform: 'uppercase',
-                  borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                   marginBottom: '4px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between'
                 }}>
                   <span>Bhashini Languages</span>
-                  <span style={{ fontSize: '0.65rem', color: '#059669' }}>Live</span>
+                  <span style={{ fontSize: '0.65rem', color: '#10B981' }}>Live</span>
                 </div>
                 {LANGUAGES.map((lang) => (
                   <button
@@ -278,15 +278,15 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                       padding: '8px 10px',
                       borderRadius: '6px',
                       border: 'none',
-                      backgroundColor: currentLang === lang.code ? 'rgba(2, 132, 199, 0.1)' : 'transparent',
-                      color: currentLang === lang.code ? '#0284C7' : '#0F172A',
+                      backgroundColor: currentLang === lang.code ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
+                      color: currentLang === lang.code ? '#38BDF8' : '#F8FAFC',
                       cursor: 'pointer',
                       fontSize: '0.86rem',
                       textAlign: 'left',
                       transition: 'background 0.15s ease'
                     }}
                     onMouseEnter={(e) => {
-                      if (currentLang !== lang.code) e.currentTarget.style.backgroundColor = '#F1F5F9';
+                      if (currentLang !== lang.code) e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
                     }}
                     onMouseLeave={(e) => {
                       if (currentLang !== lang.code) e.currentTarget.style.backgroundColor = 'transparent';
@@ -324,7 +324,7 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
               display: 'none',
               background: 'transparent',
               border: 'none',
-              color: '#0F172A',
+              color: '#F8FAFC',
               cursor: 'pointer',
               padding: '6px'
             }}
@@ -338,9 +338,9 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div style={{
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid rgba(15, 23, 42, 0.1)',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
+          backgroundColor: '#161618',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
           padding: '16px 20px',
           display: 'flex',
           flexDirection: 'column',
@@ -355,8 +355,8 @@ export function Navbar({ currentLang, onSelectLang, activePage, setActivePage, o
                 textAlign: 'left',
                 padding: '12px 14px',
                 borderRadius: '8px',
-                backgroundColor: activePage === item.id ? 'rgba(2, 132, 199, 0.1)' : 'transparent',
-                color: activePage === item.id ? '#0284C7' : '#0F172A',
+                backgroundColor: activePage === item.id ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
+                color: activePage === item.id ? '#38BDF8' : '#F8FAFC',
                 border: 'none',
                 fontSize: '1rem',
                 fontWeight: '600',

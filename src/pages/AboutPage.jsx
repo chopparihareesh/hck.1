@@ -29,10 +29,10 @@ export function AboutPage({ currentLang, setActivePage }) {
           <span className="badge badge-primary" style={{ marginBottom: '10px' }}>
             Indigenous Cyber Defense
           </span>
-          <h1 style={{ fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', fontWeight: '800', color: '#0F172A', marginBottom: '12px' }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 3.8vw, 2.8rem)', fontWeight: '800', color: '#F8FAFC', marginBottom: '12px' }}>
             About Sfynbox & Threat Architecture
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.05rem', maxWidth: '720px', margin: '0 auto', lineHeight: '1.6' }}>
+          <p style={{ color: '#94A3B8', fontSize: '1.05rem', maxWidth: '720px', margin: '0 auto', lineHeight: '1.6' }}>
             Built to neutralize mobile smishing epidemics across India by replacing outdated URL blocklists with real-time, isolated cloud microVM containerization.
           </p>
         </div>
@@ -43,7 +43,7 @@ export function AboutPage({ currentLang, setActivePage }) {
           justifyContent: 'center',
           gap: '8px',
           marginBottom: '36px',
-          borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           paddingBottom: '12px',
           flexWrap: 'wrap'
         }}>
@@ -64,9 +64,9 @@ export function AboutPage({ currentLang, setActivePage }) {
                   gap: '8px',
                   padding: '10px 20px',
                   borderRadius: '10px',
-                  border: isActive ? '1px solid #0284C7' : '1px solid transparent',
-                  backgroundColor: isActive ? 'rgba(2, 132, 199, 0.1)' : 'transparent',
-                  color: isActive ? '#0284C7' : '#475569',
+                  border: isActive ? '1px solid #38BDF8' : '1px solid transparent',
+                  backgroundColor: isActive ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
+                  color: isActive ? '#38BDF8' : '#94A3B8',
                   fontSize: '0.92rem',
                   fontWeight: isActive ? '700' : '500',
                   cursor: 'pointer',
@@ -106,12 +106,12 @@ export function AboutPage({ currentLang, setActivePage }) {
                     <AlertOctagon size={20} />
                   </div>
                   <div>
-                    <h3 style={{ color: '#DC2626', fontSize: '1.1rem', fontWeight: '700' }}>Traditional Static URL Blocklists</h3>
-                    <div style={{ fontSize: '0.74rem', color: '#64748B' }}>Legacy Browser Protection</div>
+                    <h3 style={{ color: '#EF4444', fontSize: '1.1rem', fontWeight: '700' }}>Traditional Static URL Blocklists</h3>
+                    <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>Legacy Browser Protection</div>
                   </div>
                 </div>
 
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#475569' }}>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#94A3B8' }}>
                   <li style={{ display: 'flex', gap: '8px' }}>
                     <span style={{ color: '#DC2626' }}>✕</span>
                     <span><strong>12-48 Hour Blindspot:</strong> Scammers register domains and abandon them within 6 hours. Static lists are too slow.</span>
@@ -152,22 +152,22 @@ export function AboutPage({ currentLang, setActivePage }) {
                     />
                   </div>
                   <div>
-                    <h3 style={{ color: '#0284C7', fontSize: '1.1rem', fontWeight: '700' }}>Sfynbox Cloud MicroVM Sandbox</h3>
-                    <div style={{ fontSize: '0.74rem', color: '#16A34A' }}>Zero-Day Active Behavioral Emulation</div>
+                    <h3 style={{ color: '#38BDF8', fontSize: '1.1rem', fontWeight: '700' }}>Sfynbox Cloud MicroVM Sandbox</h3>
+                    <div style={{ fontSize: '0.74rem', color: '#10B981' }}>Zero-Day Active Behavioral Emulation</div>
                   </div>
                 </div>
 
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#334155' }}>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.88rem', color: '#CBD5E1' }}>
                   <li style={{ display: 'flex', gap: '8px' }}>
-                    <CheckCircle2 size={16} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <CheckCircle2 size={16} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <span><strong>Sub-Second Execution:</strong> Spins an isolated headless Puppeteer Chromium micro-container in 180 milliseconds.</span>
                   </li>
                   <li style={{ display: 'flex', gap: '8px' }}>
-                    <CheckCircle2 size={16} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <CheckCircle2 size={16} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <span><strong>Native Mobile Touch Emulation:</strong> Spoofs Indian telecom User-Agents, screen resolutions, and touch taps to unmask cloaked payloads.</span>
                   </li>
                   <li style={{ display: 'flex', gap: '8px' }}>
-                    <CheckCircle2 size={16} color="#16A34A" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <CheckCircle2 size={16} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <span><strong>Deep DOM & Form Inspection:</strong> Traps keyloggers, unauthorized APK downloads, and hidden Telegram bot exfiltration channels.</span>
                   </li>
                 </ul>
@@ -176,8 +176,8 @@ export function AboutPage({ currentLang, setActivePage }) {
 
             {/* Architecture Pipeline Diagram */}
             <div className="glass-panel" style={{ padding: '30px', marginBottom: '40px' }}>
-              <h3 style={{ color: '#0F172A', fontSize: '1.15rem', fontWeight: '700', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Server size={18} color="#0284C7" />
+              <h3 style={{ color: '#F8FAFC', fontSize: '1.15rem', fontWeight: '700', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Server size={18} color="#38BDF8" />
                 <span>Isolated Execution Pipeline</span>
               </h3>
 
@@ -192,10 +192,10 @@ export function AboutPage({ currentLang, setActivePage }) {
                   { step: '03', title: 'Puppeteer Behavioral Clicker', desc: 'Simulates mobile browser click events and collects redirects.' },
                   { step: '04', title: 'Bhashini AI Language Synthesis', desc: 'Converts complex forensic telemetry into plain regional language verdicts.' }
                 ].map((st) => (
-                  <div key={st.step} style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                    <div style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0284C7', fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>{st.step}</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: '700', color: '#0F172A', marginBottom: '6px' }}>{st.title}</div>
-                    <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: '1.4' }}>{st.desc}</p>
+                  <div key={st.step} style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                    <div style={{ fontSize: '1.2rem', fontWeight: '800', color: '#38BDF8', fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>{st.step}</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: '700', color: '#F8FAFC', marginBottom: '6px' }}>{st.title}</div>
+                    <p style={{ fontSize: '0.78rem', color: '#94A3B8', lineHeight: '1.4' }}>{st.desc}</p>
                   </div>
                 ))}
               </div>
@@ -206,13 +206,13 @@ export function AboutPage({ currentLang, setActivePage }) {
         {/* TAB 2: MISSION & DEMOGRAPHIC IMPACT */}
         {activeTab === 'mission' && (
           <div className="glass-panel" style={{ padding: '36px' }}>
-            <h2 style={{ color: '#0F172A', fontSize: '1.5rem', fontWeight: '800', marginBottom: '16px' }}>
+            <h2 style={{ color: '#F8FAFC', fontSize: '1.5rem', fontWeight: '800', marginBottom: '16px' }}>
               Defending 900 Million Indian Mobile Citizens
             </h2>
-            <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '20px' }}>
+            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: '1.7', marginBottom: '20px' }}>
               India has experienced an unprecedented explosion in digital financial transactions via UPI and mobile banking. Concurrently, organized cyber syndicates have weaponized SMS (smishing) and WhatsApp to deploy zero-day phishing kits mimicking state electricity boards, income tax portals, and banks.
             </p>
-            <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.7', marginBottom: '30px' }}>
+            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: '1.7', marginBottom: '30px' }}>
               The fundamental flaw in current cybersecurity tools is language and complexity: technical jargon like "Self-signed SSL error" or "ASN mismatch" means nothing to an everyday shopkeeper or senior citizen. Sfynbox bridges this critical gap through <strong>Bhashini AI</strong>, explaining risks in plain Hindi, Tamil, Telugu, Kannada, Bengali, and Marathi.
             </p>
 
@@ -221,19 +221,19 @@ export function AboutPage({ currentLang, setActivePage }) {
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
               gap: '20px'
             }}>
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <h4 style={{ color: '#0284C7', fontSize: '1.1rem', marginBottom: '8px' }}>Senior Citizens</h4>
-                <p style={{ fontSize: '0.85rem', color: '#475569' }}>Eliminates panic caused by fake "power disconnection tonight" or "PAN card blocked" threats with instant verified checks.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <h4 style={{ color: '#38BDF8', fontSize: '1.1rem', marginBottom: '8px' }}>Senior Citizens</h4>
+                <p style={{ fontSize: '0.85rem', color: '#94A3B8' }}>Eliminates panic caused by fake "power disconnection tonight" or "PAN card blocked" threats with instant verified checks.</p>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <h4 style={{ color: '#16A34A', fontSize: '1.1rem', marginBottom: '8px' }}>Vernacular Internet Users</h4>
-                <p style={{ fontSize: '0.85rem', color: '#475569' }}>Provides native regional language clarity through Bhashini so safety verdicts are immediately understood without English fluency.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <h4 style={{ color: '#10B981', fontSize: '1.1rem', marginBottom: '8px' }}>Vernacular Internet Users</h4>
+                <p style={{ fontSize: '0.85rem', color: '#94A3B8' }}>Provides native regional language clarity through Bhashini so safety verdicts are immediately understood without English fluency.</p>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <h4 style={{ color: '#D97706', fontSize: '1.1rem', marginBottom: '8px' }}>Micro-Merchants & Gig Workers</h4>
-                <p style={{ fontSize: '0.85rem', color: '#475569' }}>Protects daily UPI earnings from fake payment screenshot generators and fraudulent delivery rescheduling traps.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '20px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <h4 style={{ color: '#FBBF24', fontSize: '1.1rem', marginBottom: '8px' }}>Micro-Merchants & Gig Workers</h4>
+                <p style={{ fontSize: '0.85rem', color: '#94A3B8' }}>Protects daily UPI earnings from fake payment screenshot generators and fraudulent delivery rescheduling traps.</p>
               </div>
             </div>
           </div>
@@ -256,16 +256,16 @@ export function AboutPage({ currentLang, setActivePage }) {
                 <Building2 size={24} />
               </div>
               <div>
-                <h2 style={{ color: '#0F172A', fontSize: '1.4rem', fontWeight: '800' }}>
+                <h2 style={{ color: '#F8FAFC', fontSize: '1.4rem', fontWeight: '800' }}>
                   Integrated with National Cyber Crime Architecture
                 </h2>
-                <p style={{ color: '#475569', fontSize: '0.85rem' }}>
+                <p style={{ color: '#94A3B8', fontSize: '0.85rem' }}>
                   Ministry of Home Affairs (MHA) & CERT-In SmishWatch Alignment
                 </p>
               </div>
             </div>
 
-            <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: '1.7', marginBottom: '24px' }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: '1.7', marginBottom: '24px' }}>
               Sfynbox operates as a dual-utility system: while citizens receive instant threat protection, our sensor mesh aggregates anonymized smishing telemetry directly into the Indian Cyber Crime Coordination Centre (I4C) pipeline.
             </p>
 
@@ -275,22 +275,22 @@ export function AboutPage({ currentLang, setActivePage }) {
               gap: '20px',
               marginBottom: '30px'
             }}>
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <FileCheck size={20} color="#0284C7" style={{ marginBottom: '8px' }} />
-                <h4 style={{ color: '#0F172A', fontSize: '0.95rem', marginBottom: '6px' }}>Section 69A IT Act Automation</h4>
-                <p style={{ fontSize: '0.82rem', color: '#475569' }}>One-click formatted forensic notices dispatched directly to domain registrar abuse desks (Cloudflare, Namecheap) to suspend domains in hours.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <FileCheck size={20} color="#38BDF8" style={{ marginBottom: '8px' }} />
+                <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', marginBottom: '6px' }}>Section 69A IT Act Automation</h4>
+                <p style={{ fontSize: '0.82rem', color: '#94A3B8' }}>One-click formatted forensic notices dispatched directly to domain registrar abuse desks (Cloudflare, Namecheap) to suspend domains in hours.</p>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <Zap size={20} color="#D97706" style={{ marginBottom: '8px' }} />
-                <h4 style={{ color: '#0F172A', fontSize: '0.95rem', marginBottom: '6px' }}>Helpline 1930 Integration</h4>
-                <p style={{ fontSize: '0.82rem', color: '#475569' }}>Citizen scan escalations are tagged with technical evidence dossiers to accelerate golden-hour bank account freezing.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <Zap size={20} color="#FBBF24" style={{ marginBottom: '8px' }} />
+                <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', marginBottom: '6px' }}>Helpline 1930 Integration</h4>
+                <p style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Citizen scan escalations are tagged with technical evidence dossiers to accelerate golden-hour bank account freezing.</p>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <Server size={20} color="#16A34A" style={{ marginBottom: '8px' }} />
-                <h4 style={{ color: '#0F172A', fontSize: '0.95rem', marginBottom: '6px' }}>State Cyber Cell Telemetry</h4>
-                <p style={{ fontSize: '0.82rem', color: '#475569' }}>Live geolocation feeds map emerging smishing campaigns across Maharashtra, Karnataka, Uttar Pradesh, and Delhi NCR.</p>
+              <div style={{ backgroundColor: 'rgba(26, 26, 30, 0.75)', padding: '18px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <Server size={20} color="#10B981" style={{ marginBottom: '8px' }} />
+                <h4 style={{ color: '#F8FAFC', fontSize: '0.95rem', marginBottom: '6px' }}>State Cyber Cell Telemetry</h4>
+                <p style={{ fontSize: '0.82rem', color: '#94A3B8' }}>Live geolocation feeds map emerging smishing campaigns across Maharashtra, Karnataka, Uttar Pradesh, and Delhi NCR.</p>
               </div>
             </div>
 
