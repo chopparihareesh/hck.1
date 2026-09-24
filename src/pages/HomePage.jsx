@@ -26,6 +26,7 @@ import {
 import { translations } from '../data/translations';
 import { SCAM_PRESETS } from '../data/scamDatabase';
 import { LIVE_TELEMETRY_FEED } from '../data/telemetryData';
+import KineticGrid from '@/components/ui/kinetic-grid';
 
 export function HomePage({ currentLang, onStartScan, setActivePage }) {
   const t = translations[currentLang] || translations.en;
@@ -74,9 +75,10 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
   };
 
   return (
-    <div className="cyber-bg" style={{ minHeight: '100vh', paddingBottom: '60px' }}>
-      
-      {/* HERO SECTION */}
+    <KineticGrid className="cyber-bg" globalColor="default">
+      <div style={{ minHeight: '100vh', paddingBottom: '60px' }}>
+        
+        {/* HERO SECTION */}
       <section style={{
         padding: '70px 20px 40px',
         textAlign: 'center',
@@ -774,6 +776,7 @@ export function HomePage({ currentLang, onStartScan, setActivePage }) {
           .hide-on-mobile { display: none !important; }
         }
       `}</style>
-    </div>
+      </div>
+    </KineticGrid>
   );
 }

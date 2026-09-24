@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ScamReport {
+  id               String   @id @default(uuid())
+  rawMessage       String
+  senderIdentifier String?
+  extractedUrl     String?
+  domainAgeDays    Int?
+  riskScore        Int
+  riskLevel        String   // "SAFE" | "SUSPICIOUS" | "DANGER"
+  riskCategory     String   // "ELECTRICITY_DISCOM" | "BANK_KYC" | "LOTTERY" | "APK_MALWARE" | "LEGIT"
+  localizedSummary String   // JSON string containing { en, hi, ta, te, mr, bn }
+  screenshotUrl    String?
+  reportedToI4C    Boolean  @default(false)
+  createdAt        DateTime @default(now())
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, 
   ShieldAlert, 
@@ -40,6 +40,37 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
   const [citizenHistory, setCitizenHistory] = useState(CITIZEN_SCAN_HISTORY);
   const [actionSuccessMsg, setActionSuccessMsg] = useState('');
 
+  // Fetch real scan reports from SQLite backend
+  useEffect(() => {
+    fetch('/api/reports')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.reports && data.reports.length > 0) {
+          const mapped = data.reports.map(r => {
+            const dateStr = new Date(r.createdAt).toLocaleDateString('en-IN', {
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+            return {
+              id: r.id,
+              verdict: `${r.riskCategory.replace('_', ' ')}${r.senderIdentifier ? ` (${r.senderIdentifier})` : ''}`,
+              url: r.extractedUrl || (r.rawMessage.length > 45 ? r.rawMessage.substring(0, 45) + '...' : r.rawMessage),
+              date: dateStr,
+              riskLevel: r.riskLevel === 'DANGER' ? 'critical' : (r.riskLevel === 'SAFE' ? 'safe' : 'suspicious'),
+              device: 'Mobile Sandbox MicroVM',
+              status: r.reportedToI4C ? 'Reported to 1930 & I4C' : 'Isolated in Cloud Sandbox'
+            };
+          });
+          setCitizenHistory(mapped);
+        }
+      })
+      .catch(err => {
+        console.warn('Backend /api/reports unavailable, using local history cache:', err);
+      });
+  }, []);
+
   const filteredTelemetry = LIVE_TELEMETRY_FEED.filter(item => 
     item.domain.toLowerCase().includes(telemetryFilter.toLowerCase()) ||
     item.brand.toLowerCase().includes(telemetryFilter.toLowerCase()) ||
@@ -64,7 +95,12 @@ export function DashboardPage({ currentLang, onLaunchScan }) {
     element.remove();
   };
 
-  const handleReportCitizenScan = (id) => {
+  const handleReportCitizenScan = async (id) => {
+    try {
+      await fetch(`/api/reports/${id}/report-i4c`, { method: 'POST' });
+    } catch (err) {
+      console.warn('Error syncing report to I4C endpoint:', err);
+    }
     setCitizenHistory(prev => prev.map(item => {
       if (item.id === id) {
         return { ...item, status: 'Reported to 1930 & I4C' };

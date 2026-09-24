@@ -26,7 +26,10 @@ import {
   PhoneCall,
   Activity,
   Zap,
-  Package
+  Package,
+  Volume2,
+  VolumeX,
+  Radio
 } from 'lucide-react';
 import { translations } from '../data/translations';
 import { SCAM_PRESETS, analyzeTargetUrl } from '../data/scamDatabase';
@@ -49,32 +52,93 @@ export function ScannerPage({ currentLang, initialUrl, onReportEscalate }) {
   });
   const [copiedDossier, setCopiedDossier] = useState(false);
   const [escalated, setEscalated] = useState(false);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
-  const executeScan = useCallback((targetUrl) => {
-    const analysis = analyzeTargetUrl(targetUrl);
-    setActiveResult(analysis);
+  const executeScan = useCallback(async (targetText) => {
     setIsScanning(true);
     setScanStep(1);
-    setActiveLogs([analysis.sandboxLogs[0]]);
     setEscalated(false);
 
-    // Dynamic stepper intervals
+    // Initial microVM log entry
+    setActiveLogs([
+      { step: 1, text: `[INGESTION] Received SMS / URL payload: "${targetText.substring(0, 50)}..."` },
+      { step: 1, text: '[DNS-ENGINE] Querying domain records & sender telemetry nodes' }
+    ]);
+
+    // Timer step 2: MicroVM container spinup
     setTimeout(() => {
       setScanStep(2);
-      setActiveLogs(prev => [...prev, analysis.sandboxLogs[1] || { step: 2, text: '[DOCKER] Spawning isolated microVM' }, analysis.sandboxLogs[2]]);
+      setActiveLogs(prev => [...prev, 
+        { step: 2, text: '[DOCKER-MICROVM] Spawning isolated headless Chromium sandbox container' },
+        { step: 2, text: '[NETWORK-SNIFFER] Attaching zero-trust proxy & DNS sinkhole' }
+      ]);
     }, 600);
 
+    // Timer step 3: Heuristics & Emulation
     setTimeout(() => {
       setScanStep(3);
-      setActiveLogs(prev => [...prev, analysis.sandboxLogs[3] || { step: 3, text: '[PUPPETEER] Emulating touch events' }, analysis.sandboxLogs[4]]);
-    }, 1300);
+      setActiveLogs(prev => [...prev, 
+        { step: 3, text: '[HEURISTICS] Evaluating threat rules (A: Discom, B: APK, C: Bank OTP, D: Fallback)' },
+        { step: 3, text: '[PUPPETEER] Emulating Indian mobile Safari touch viewport (390x844px)' }
+      ]);
+    }, 1200);
 
-    setTimeout(() => {
-      setScanStep(4);
-      setActiveLogs(analysis.sandboxLogs);
-      setIsScanning(false);
-    }, 2100);
-  }, []);
+    try {
+      // POST to backend /api/scan endpoint
+      const response = await fetch('/api/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: targetText,
+          language: currentLang
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API returned status ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      setTimeout(() => {
+        setScanStep(4);
+        const mappedResult = {
+          ...data,
+          id: data.id,
+          url: data.extractedUrl || data.rawMessage,
+          riskScore: data.riskScore,
+          riskLevel: data.riskLevel === 'DANGER' ? 'critical' : (data.riskLevel === 'SAFE' ? 'safe' : 'suspicious'),
+          category: data.riskCategory === 'ELECTRICITY_DISCOM' ? 'Fake Utility Disconnection & Banker Trojan APK' :
+                    (data.riskCategory === 'APK_MALWARE' ? 'Malicious Banker Trojan APK Dropper' :
+                    (data.riskCategory === 'BANK_KYC' ? 'Bank KYC Phishing & Credential Harvester' :
+                    (data.riskCategory === 'LOTTERY' ? 'Fraudulent Lottery / Prize Scheme' :
+                    (data.riskCategory === 'LEGIT' ? 'Verified Authentic Transactional Message' : 'Suspicious Smishing Telemetry Signature')))),
+          entity: data.senderIdentifier && data.senderIdentifier !== 'UNKNOWN_SENDER' 
+            ? `Sender: ${data.senderIdentifier}` 
+            : (data.riskLevel === 'DANGER' ? 'Unverified / Potential Brand Impersonator' : 'Standard Web Domain'),
+          summaryByLang: data.localizedSummary || {},
+          sandboxLogs: data.sandboxLogs || [],
+          screenshotType: data.screenshotType || 'custom',
+          forensics: data.forensics || {},
+          audioWarningText: data.audioWarningText
+        };
+
+        setActiveResult(mappedResult);
+        setActiveLogs(data.sandboxLogs || []);
+        setIsScanning(false);
+      }, 1900);
+
+    } catch (err) {
+      console.warn('API /api/scan fallback to local heuristics:', err);
+      const fallbackAnalysis = analyzeTargetUrl(targetText);
+      setTimeout(() => {
+        setScanStep(4);
+        setActiveResult(fallbackAnalysis);
+        setActiveLogs(fallbackAnalysis.sandboxLogs || []);
+        setIsScanning(false);
+      }, 1900);
+    }
+  }, [currentLang]);
 
   // If initialUrl changes from home page, trigger scan
   useEffect(() => {
@@ -105,8 +169,34 @@ export function ScannerPage({ currentLang, initialUrl, onReportEscalate }) {
   };
 
   const handleSelectPreset = (preset) => {
-    setUrl(preset.url);
-    executeScan(preset.url);
+    const textToScan = preset.sampleSms || preset.url;
+    setUrl(textToScan);
+    executeScan(textToScan);
+  };
+
+  const playVoiceAlert = () => {
+    if (!('speechSynthesis' in window)) {
+      alert('Speech synthesis is not supported in this browser.');
+      return;
+    }
+
+    if (isPlayingAudio) {
+      window.speechSynthesis.cancel();
+      setIsPlayingAudio(false);
+      return;
+    }
+
+    const warningText = activeResult.audioWarningText || 
+      (activeResult.summaryByLang && (activeResult.summaryByLang[currentLang] || activeResult.summaryByLang.en)) ||
+      'Warning: Potential cyber threat detected. Do not click links or share banking OTP.';
+
+    const utterance = new SpeechSynthesisUtterance(warningText);
+    utterance.rate = 0.95;
+    utterance.onend = () => setIsPlayingAudio(false);
+    utterance.onerror = () => setIsPlayingAudio(false);
+
+    setIsPlayingAudio(true);
+    window.speechSynthesis.speak(utterance);
   };
 
   const copyThreatReport = () => {
@@ -118,7 +208,7 @@ Domain Age: ${activeResult.forensics?.domainAge}
 Host IP: ${activeResult.forensics?.hostIp} (${activeResult.forensics?.geoCountry})
 SSL Status: ${activeResult.forensics?.sslIssuer}
 Payload: ${activeResult.forensics?.payloadDetected}
-Advisory: ${activeResult.summaryByLang[currentLang] || activeResult.summaryByLang.en}`;
+Advisory: ${activeResult.summaryByLang?.[currentLang] || activeResult.summaryByLang?.en || ''}`;
 
     navigator.clipboard.writeText(reportText);
     setCopiedDossier(true);
@@ -135,8 +225,17 @@ Advisory: ${activeResult.summaryByLang[currentLang] || activeResult.summaryByLan
     downloadAnchor.remove();
   };
 
-  const handleEscalate1930 = () => {
+  const handleEscalate1930 = async () => {
     setEscalated(true);
+    if (activeResult?.id) {
+      try {
+        await fetch(`/api/reports/${activeResult.id}/report-i4c`, {
+          method: 'POST'
+        });
+      } catch (err) {
+        console.warn('Escalation API sync notice:', err);
+      }
+    }
     if (onReportEscalate) onReportEscalate(activeResult);
   };
 
@@ -679,12 +778,38 @@ Advisory: ${activeResult.summaryByLang[currentLang] || activeResult.summaryByLan
               padding: '18px 22px',
               marginBottom: '30px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#76C0EC', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#76C0EC', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase' }}>
                   <Globe size={15} />
                   <span>{t.scanner.regionalSummaryTitle}</span>
+                  {activeResult.riskCategory && (
+                    <span className="badge badge-warning" style={{ fontSize: '0.68rem', letterSpacing: '0.04em' }}>
+                      {activeResult.riskCategory}
+                    </span>
+                  )}
                 </div>
-                <span className="badge badge-primary" style={{ fontSize: '0.7rem' }}>Bhashini AI</span>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={playVoiceAlert}
+                    className="btn-secondary"
+                    style={{
+                      padding: '4px 10px',
+                      fontSize: '0.74rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: isPlayingAudio ? '#FACC15' : '#76C0EC',
+                      borderColor: isPlayingAudio ? '#FACC15' : 'rgba(118, 192, 236, 0.3)'
+                    }}
+                    title="Play synthesized regional voice advisory"
+                  >
+                    {isPlayingAudio ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                    <span>{isPlayingAudio ? 'Stop Audio' : 'Play Voice Advisory (Bhashini)'}</span>
+                  </button>
+                  <span className="badge badge-primary" style={{ fontSize: '0.7rem' }}>Bhashini AI</span>
+                </div>
               </div>
               <p style={{
                 fontSize: '1.05rem',
@@ -692,7 +817,7 @@ Advisory: ${activeResult.summaryByLang[currentLang] || activeResult.summaryByLan
                 color: '#F8FAFC',
                 fontWeight: '600'
               }}>
-                {activeResult.summaryByLang[currentLang] || activeResult.summaryByLang.en}
+                {activeResult.summaryByLang?.[currentLang] || activeResult.summaryByLang?.en || ''}
               </p>
             </div>
 

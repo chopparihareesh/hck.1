@@ -1,0 +1,165 @@
+# Implementation Plan: Scam SMS Sandbox Backend & Fullstack Integration
+
+This plan outlines the architecture and implementation of the complete backend for the Scam SMS Sandbox application, featuring threat heuristics, native SQLite / Prisma state storage, Bhashini multi-lingual advisories, and live frontend integration.
+
+---
+
+## 1. Architecture Overview
+
+```
++-------------------------------------------------------------+
+|                      React Frontend                         |
+|  - ScannerPage: SMS / URL Form -> POST /api/scan            |
+|  - Threat Verdict & Bhashini Multi-Lingual Advisory Card   |
+|  - 1-Click "Report to 1930 / I4C" -> POST /api/reports/:id  |
+|  - DashboardPage: Live I4C Telemetry & Citizen Table        |
++-------------------------------------------------------------+
+                               |
+                               | (HTTP / Fetch API)
+                               v
++-------------------------------------------------------------+
+|                 Backend API Layer (Express / Vite)          |
+|  - POST /api/scan: Regex extraction & Threat Engine         |
+|  - GET /api/reports: Fetch recent scanned threat dossiers   |
+|  - POST /api/reports/:id/report-i4c: Mark reported to I4C   |
++-------------------------------------------------------------+
+                               |
+                               v
++-------------------------------------------------------------+
+|               Threat Logic Engine & Heuristics              |
+|  - Rule A: Bill cutoffs + phone / short link -> 95 (DANGER) |
+|  - Rule B: .apk or "download update/YONO" -> 98 (DANGER)    |
+|  - Rule C: Bank OTP layout -> 5 (SAFE)                      |
+|  - Rule D: Fallback heuristic -> 60 (SUSPICIOUS)            |
+|  - Bhashini generator: en, hi, ta, te, mr, bn advisories    |
++-------------------------------------------------------------+
+                               |
+                               v
++-------------------------------------------------------------+
+|              Database & State Storage (SQLite)              |
+|  - Native `node:sqlite` DB (`server/scam_sandbox.db`)       |
+|  - Seeded initial incidents + persistent runtime storage    |
+|  - Prisma Schema (`prisma/schema.prisma`) definition        |
++-------------------------------------------------------------+
+```
+
+---
+
+## 2. Proposed Changes
+
+### Database & Models
+
+#### [NEW] [schema.prisma](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/prisma/schema.prisma)
+- Define standard Prisma schema for `ScamReport`:
+  - `id`: String (UUID / cuid)
+  - `rawMessage`: String
+  - `senderIdentifier`: String?
+  - `extractedUrl`: String?
+  - `domainAgeDays`: Int?
+  - `riskScore`: Int
+  - `riskLevel`: String ("SAFE" | "SUSPICIOUS" | "DANGER")
+  - `riskCategory`: String ("ELECTRICITY_DISCOM" | "BANK_KYC" | "LOTTERY" | "APK_MALWARE" | "LEGIT")
+  - `localizedSummary`: Json / String (en, hi, ta, te, mr, bn)
+  - `screenshotUrl`: String?
+  - `reportedToI4C`: Boolean @default(false)
+  - `createdAt`: DateTime @default(now())
+
+#### [NEW] [db.js](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/server/db.js)
+- Native SQLite database using Node 24's built-in `node:sqlite` (`DatabaseSync`).
+- Creates table `scam_reports` if not exists, indexed on `createdAt`.
+- Helper methods:
+  - `createReport(reportData)`
+  - `getReports(limit, filter)`
+  - `getReportById(id)`
+  - `markReportedToI4C(id)`
+- Pre-seeds with initial high-fidelity Indian scam scenarios (BESCOM bill, SBI YONO, India Post, legit HDFC OTP) so the I4C admin dashboard is populated immediately.
+
+---
+
+### Threat Logic Engine & API Services
+
+#### [NEW] [threatEngine.js](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/server/threatEngine.js)
+- **Extraction**:
+  - URLs: `https?:\/\/[^\s]+` and domain patterns.
+  - Sender IDs: Indian phone numbers (`(?:\+91|0)?[6-9]\d{9}`), Indian SMS headers (`[A-Z]{2}-[A-Z]{6}` e.g., `VK-BESCOM`, `AD-SBIINB`, `BZ-HDFCBK`).
+  - Keywords & intent signals.
+- **Threat Rules Execution**:
+  - **Rule A (ELECTRICITY_DISCOM)**: Bill cutoff phrases ("disconnected", "cut at 9:30 PM", "bijli", "power supply") + phone number or short link -> `riskScore: 95`, `riskLevel: 'DANGER'`, `riskCategory: 'ELECTRICITY_DISCOM'`.
+  - **Rule B (APK_MALWARE)**: Link ending in `.apk` or containing "download update", "YONO update", "install app" -> `riskScore: 98`, `riskLevel: 'DANGER'`, `riskCategory: 'APK_MALWARE'`.
+  - **Rule C (LEGIT)**: Bank name + standard transactional OTP layout ("OTP is 123456... Never share OTP with anyone") -> `riskScore: 5`, `riskLevel: 'SAFE'`, `riskCategory: 'LEGIT'`.
+  - **Rule D (SUSPICIOUS)**: Unmatched / unverified sender, generic short links, unverified claims -> `riskScore: 60`, `riskLevel: 'SUSPICIOUS'`, `riskCategory: 'SUSPICIOUS'`.
+- **Bhashini Multi-Lingual Plain-Language Generator**:
+  - Formats tailored advisories in 6 official languages: English (`en`), Hindi (`hi`), Telugu (`te`), Tamil (`ta`), Marathi (`mr`), Bengali (`bn`).
+  - Generates synthetic audio warning script for citizen voice alert / TTS.
+- **Mock Sandbox Metadata**:
+  - Simulated domain age (e.g., "Registered 18 hours ago in Russia", or days calculation).
+  - Registrar, Geo-IP, Host ASN, SSL certificate status.
+  - Step-by-step sandbox execution logs for the simulated microVM container.
+  - Quarantined screenshot preview type / URL.
+
+---
+
+### Backend API Routes & Server
+
+#### [NEW] [apiRouter.js](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/server/apiRouter.js)
+- Express router exporting the endpoints:
+  - `POST /api/scan`: Parses `{ text, language, imageUrl }`, executes threat engine, saves to SQLite, and returns comprehensive verdict.
+  - `GET /api/reports`: Returns all stored scan reports for the I4C admin dashboard.
+  - `POST /api/reports/:id/report-i4c`: Flags `reportedToI4C = true` and updates timestamp.
+  - `GET /api/health`: Health check endpoint.
+
+#### [NEW] [index.js](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/server/index.js)
+- Standalone Express server running on port 5000 with CORS and JSON body parser.
+
+#### [MODIFY] [vite.config.js](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/vite.config.js)
+- Integrates the API router as dev server middleware directly in Vite.
+- When running `npm run dev`, API endpoints `/api/*` are handled immediately without requiring separate terminal management, while also providing proxy fallback if a standalone backend is running.
+
+#### [MODIFY] [package.json](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/package.json)
+- Add dependencies `express` and `cors`.
+- Add scripts: `"server": "node server/index.js"` and `"start": "node server/index.js"`.
+
+---
+
+### Frontend Integration
+
+#### [MODIFY] [ScannerPage.jsx](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/src/pages/ScannerPage.jsx)
+- Update scanner form:
+  - Supports pasting both full SMS text and target URLs.
+  - Triggers `fetch('/api/scan', { method: 'POST', body: JSON.stringify({ text, language: currentLang }) })`.
+- Updates the live results dossier:
+  - Displays dynamic risk score (e.g. 95/100), risk level (DANGER, SUSPICIOUS, SAFE), and category badge.
+  - Displays localized plain-language Bhashini warning matching the citizen's selected language.
+  - Adds interactive audio warning button (using Web Speech API with Bhashini text).
+  - Connects "Report to 1930 / I4C" button to `POST /api/reports/${activeResult.id}/report-i4c`.
+  - Reflects immediate confirmation badge when escalated.
+
+#### [MODIFY] [DashboardPage.jsx](file:///c:/Users/Haree/OneDrive/Desktop/hck.1/src/pages/DashboardPage.jsx)
+- Connects the Recent Citizen Scan History and Telemetry streams to fetch real records from `/api/reports`.
+- Allows reporting any un-reported incident directly from the table with instant backend sync.
+- Computes summary metrics (Active Threats, Averted Scams, Escalated to 1930) dynamically from SQLite reports.
+
+---
+
+## 3. Verification Plan
+
+### Automated API Testing
+1. Test `/api/scan` with Rule A payload (Electricity disconnect + phone number):
+   - Expected: `riskScore: 95`, `riskLevel: 'DANGER'`, `riskCategory: 'ELECTRICITY_DISCOM'`.
+2. Test `/api/scan` with Rule B payload (APK download / YONO update):
+   - Expected: `riskScore: 98`, `riskLevel: 'DANGER'`, `riskCategory: 'APK_MALWARE'`.
+3. Test `/api/scan` with Rule C payload (Standard Bank OTP):
+   - Expected: `riskScore: 5`, `riskLevel: 'SAFE'`, `riskCategory: 'LEGIT'`.
+4. Test `/api/scan` with Rule D payload (Ambiguous SMS text):
+   - Expected: `riskScore: 60`, `riskLevel: 'SUSPICIOUS'`.
+5. Test `/api/reports`:
+   - Verify returned records list, including newly created report.
+6. Test `POST /api/reports/:id/report-i4c`:
+   - Verify `reportedToI4C` changes to `true`.
+
+### Manual Browser Verification
+1. Start dev server and navigate to Scanner page.
+2. Submit sample SMS text for an electricity cutoff.
+3. Observe sandbox animation, live score (95 DANGER), multi-lingual Bhashini warning, and preview.
+4. Click "Report to 1930 / I4C" and verify status updates to escalated.
+5. Switch to Dashboard view and verify the report appears in the live telemetry table with "Reported to 1930 & I4C".
